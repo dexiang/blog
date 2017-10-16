@@ -21,7 +21,7 @@
 <meta property="og:image" content="http://blog.dexiang.me/tech/about-hyper-text-transfer-protocol/chrome-ssl.png">
 <meta property="og:image" content="http://blog.dexiang.me/tech/about-hyper-text-transfer-protocol/firefox-no-ssl.png">
 <meta property="og:image" content="http://blog.dexiang.me/tech/about-hyper-text-transfer-protocol/firefox-ssl.png">
-<meta property="og:updated_time" content="2017-09-27T01:37:29.000Z">
+<meta property="og:updated_time" content="2017-10-15T12:41:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="簡介 HTTP &amp; HTTPS &amp; HTTP2 協定">
 <meta name="twitter:description" content="科技來自於人性，知識的傳遞原本是透過書本或口述，但是當網路出現後，人們想要在上傳遞資訊，就得要制定出一些規則，經過不斷修改，最後總結成了一個協定，把它命名為 HyperText Transfer Protocol。 HTTP一種網路傳輸協定，全名是：HyperText Transfer Protocol，設計初衷是為了傳輸 HTML，中間也推出了數個版本，現今最被廣泛使用的是 HTTP1.1。 H">
@@ -83,9 +83,7 @@ ga('send', 'pageview');
 	        
 				<li><a href="/archives">文章列表</a></li>
 	        
-				<li><a href="/categories">分類</a></li>
-	        
-				<li><a href="/tags">標籤</a></li>
+				<li><a href="/categories/tech/">技術文章</a></li>
 	        
 			</ul>
 		</nav>
@@ -147,8 +145,6 @@ ga('send', 'pageview');
 			
 				
 			
-				
-			
 			
 			
 			<nav class="header-nav">
@@ -169,13 +165,11 @@ ga('send', 'pageview');
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 25%"><a href="/">首頁</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">首頁</a></li>
 		        
-					<li style="width: 25%"><a href="/archives">文章列表</a></li>
+					<li style="width: 33.333333333333336%"><a href="/archives">文章列表</a></li>
 		        
-					<li style="width: 25%"><a href="/categories">分類</a></li>
-		        
-					<li style="width: 25%"><a href="/tags">標籤</a></li>
+					<li style="width: 33.333333333333336%"><a href="/categories/tech/">技術文章</a></li>
 		        
 				</ul>
 			</nav>
@@ -220,6 +214,7 @@ ga('send', 'pageview');
 </ul>
 <p>※ 引述自 <a href="https://zh.wikipedia.org/wiki/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE" target="_blank" rel="external">維基百科</a></p>
 </blockquote>
+<a id="more"></a>
 <h3 id="HTTP-amp-TCP"><a href="#HTTP-amp-TCP" class="headerlink" title="HTTP &amp; TCP"></a>HTTP &amp; TCP</h3><p>HTTP 是基於 TCP 協定，由 Client 發起，預設走 80 Port。<br>在網路分層中由上而下依序是應用、表現、會議、傳輸、網路、鏈結、實體， TCP 是傳輸層協定，HTTP 是應用層，也就是說這是不一樣的東西，TCP 是解決數據如何在網路傳輸，HTTP 是解決如何包裝數據。</p>
 <img src="/tech/about-hyper-text-transfer-protocol/TCPIP-Protocol-Architecture.gif" alt="TCP/IP Protocol Architecture" title="TCP/IP Protocol Architecture">
 <h3 id="HTTP-keep-alive"><a href="#HTTP-keep-alive" class="headerlink" title="HTTP keep-alive"></a>HTTP keep-alive</h3><p>在 HTTP/1.0 的時候預設的方式是沒有 keep-alive，每一次的連線都是獨立的，在 HTTP/1.1 的時候 keep-alive 是預設開啟的，當多個 request 到同一台時會使用同一個 TCP 連線來傳送和接收，因開關 TCP 連線是有時間成本和 CPU 成本的，如此一來可獲得低網路阻塞和優化效能等等的好處。</p>
@@ -382,7 +377,7 @@ ga('send', 'pageview');
   
 <nav id="article-nav">
   
-    <a href="/uncategorized/gcp-vs-aws/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/tech/gcp-vs-aws/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -392,7 +387,7 @@ ga('send', 'pageview');
     </a>
   
   
-    <a href="/hexo/hexo-draft/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/tech/hexo-draft/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Hexo 草稿</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -519,6 +514,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">AWS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">golang</a>
               </li>
              
@@ -544,10 +543,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">tls</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">AWS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -584,10 +579,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">draft</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">正则</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -6,18 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://blog.dexiang.me">
-  <title>Tag: Apache | Tony 字傳</title>
+  <title>雲端 PK - AWS &amp; GCP | Tony 字傳</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="希望藉由分享 &amp; 紀錄，來讓自己的生活留下足跡，也希望藉由我的分享來幫助更多的人">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Tony 字傳">
-<meta property="og:url" content="http://blog.dexiang.me/tags/Apache/index.html">
+  <meta name="description" content="近年來雲端平台的服務應該大家都不陌生吧～它讓我們可以將維護與建置的工作交付給雲端平台去處理；雲端化以後 IT 維護改由雲端供應商負責，讓我們能花更多的專注力在創新研發上，還能加速部署與模型的建置，使得產品業務更靈活。 那麼，到底該怎麼挑選適合自己公司的雲端？先來基礎複習一下，主要的三種雲端服務類型 IaaS（Infrastructure as a Service，基礎設施即服務）、PasS（Pla">
+<meta name="keywords" content="AWS,GCP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="雲端 PK - AWS &amp; GCP">
+<meta property="og:url" content="http://blog.dexiang.me/tech/gcp-vs-aws/index.html">
 <meta property="og:site_name" content="Tony 字傳">
-<meta property="og:description" content="希望藉由分享 &amp; 紀錄，來讓自己的生活留下足跡，也希望藉由我的分享來幫助更多的人">
+<meta property="og:description" content="近年來雲端平台的服務應該大家都不陌生吧～它讓我們可以將維護與建置的工作交付給雲端平台去處理；雲端化以後 IT 維護改由雲端供應商負責，讓我們能花更多的專注力在創新研發上，還能加速部署與模型的建置，使得產品業務更靈活。 那麼，到底該怎麼挑選適合自己公司的雲端？先來基礎複習一下，主要的三種雲端服務類型 IaaS（Infrastructure as a Service，基礎設施即服務）、PasS（Pla">
 <meta property="og:locale" content="zh-TW">
+<meta property="og:image" content="http://blog.dexiang.me/tech/gcp-vs-aws/separation_of_responsibilities.png">
+<meta property="og:updated_time" content="2017-10-15T12:43:13.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tony 字傳">
-<meta name="twitter:description" content="希望藉由分享 &amp; 紀錄，來讓自己的生活留下足跡，也希望藉由我的分享來幫助更多的人">
+<meta name="twitter:title" content="雲端 PK - AWS &amp; GCP">
+<meta name="twitter:description" content="近年來雲端平台的服務應該大家都不陌生吧～它讓我們可以將維護與建置的工作交付給雲端平台去處理；雲端化以後 IT 維護改由雲端供應商負責，讓我們能花更多的專注力在創新研發上，還能加速部署與模型的建置，使得產品業務更靈活。 那麼，到底該怎麼挑選適合自己公司的雲端？先來基礎複習一下，主要的三種雲端服務類型 IaaS（Infrastructure as a Service，基礎設施即服務）、PasS（Pla">
+<meta name="twitter:image" content="http://blog.dexiang.me/tech/gcp-vs-aws/separation_of_responsibilities.png">
   
     <link rel="alternative" href="/atom.xml" title="Tony 字傳" type="application/atom+xml">
   
@@ -176,36 +180,143 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-gcp-vs-aws" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/tech/AWS-EC2-LAMP-2/" class="archive-article-date">
-  	<time datetime="2016-10-17T16:00:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-18</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/tech/AWS-EC2-LAMP-2/">AWS EC2 LAMP (2)</a>
+    <h1 class="article-title" itemprop="name">
+      雲端 PK - AWS &amp; GCP
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/tech/gcp-vs-aws/" class="archive-article-date">
+  	<time datetime="2017-06-06T11:18:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>近年來雲端平台的服務應該大家都不陌生吧～它讓我們可以將維護與建置的工作交付給雲端平台去處理；雲端化以後 IT 維護改由雲端供應商負責，讓我們能花更多的專注力在創新研發上，還能加速部署與模型的建置，使得產品業務更靈活。</p>
+<p>那麼，到底該怎麼挑選適合自己公司的雲端？先來基礎複習一下，主要的三種雲端服務類型 IaaS（Infrastructure as a Service，基礎設施即服務）、PasS（Platform as a Service，平台即服務）、SaaS（Software as a Service，軟體即服務），各家平台在服務上也略有不同：</p>
+<img src="/tech/gcp-vs-aws/separation_of_responsibilities.png" alt="Separation of Responsibilities" title="Separation of Responsibilities">
+<a id="more"></a>
+<h2 id="該選哪朵雲？"><a href="#該選哪朵雲？" class="headerlink" title="該選哪朵雲？"></a>該選哪朵雲？</h2><h3 id="基礎建設"><a href="#基礎建設" class="headerlink" title="基礎建設"></a>基礎建設</h3><table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align:center">AWS</th>
+<th style="text-align:center">GCP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>地理區域數量</td>
+<td style="text-align:center">16 regions, 42 zones</td>
+<td style="text-align:center">9 regions, 27 zones</td>
+</tr>
+<tr>
+<td>未來擴點</td>
+<td style="text-align:center">3 regions</td>
+<td style="text-align:center">8 regions, 20 zones</td>
+</tr>
+<tr>
+<td>Taiwan 有無 regions</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">V</td>
+</tr>
+<tr>
+<td>Link</td>
+<td style="text-align:center"><a href="https://aws.amazon.com/tw/about-aws/global-infrastructure/" title="AWS 簡介" target="_blank" rel="external">https://aws.amazon.com/tw/about-aws/global-infrastructure/</a></td>
+<td style="text-align:center"><a href="https://cloud.google.com/about/locations/" title="GCP 簡介" target="_blank" rel="external">https://cloud.google.com/about/locations/</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="機器類型-amp-運算能力"><a href="#機器類型-amp-運算能力" class="headerlink" title="機器類型 &amp; 運算能力"></a>機器類型 &amp; 運算能力</h3><p>GCP 可自訂機器類型，但價錢來說差不多</p>
+<h3 id="計費方式"><a href="#計費方式" class="headerlink" title="計費方式"></a>計費方式</h3><ul>
+<li>GCP 以分計費，提供免費服務 (特定機器)</li>
+<li>AWS 以時計費</li>
+</ul>
+<blockquote>
+<p>試算工具<br>AWS：<a href="http://calculator.s3.amazonaws.com/index.html" target="_blank" rel="external">http://calculator.s3.amazonaws.com/index.html</a><br>GCP：<a href="https://cloud.google.com/products/calculator/" target="_blank" rel="external">https://cloud.google.com/products/calculator/</a></p>
+</blockquote>
+<h3 id="服務項目"><a href="#服務項目" class="headerlink" title="服務項目"></a>服務項目</h3><ul>
+<li>AWS 種類玲琅滿目</li>
+<li>GCP 服務較少</li>
+</ul>
+<h2 id="服務對照"><a href="#服務對照" class="headerlink" title="服務對照"></a>服務對照</h2><table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align:center">AWS</th>
+<th style="text-align:center">GCP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>雲端虛擬伺服器</td>
+<td style="text-align:center">Amazon EC2</td>
+<td style="text-align:center">Google Compute Engine</td>
+</tr>
+<tr>
+<td>無伺服器</td>
+<td style="text-align:center">AWS Lambda</td>
+<td style="text-align:center">Google Cloud Functions</td>
+</tr>
+<tr>
+<td>隔離雲端資源</td>
+<td style="text-align:center">Amazon Virtual Private Cloud (VPC)</td>
+<td style="text-align:center">Google Cloud Virtual Network</td>
+</tr>
+<tr>
+<td>雲端儲存</td>
+<td style="text-align:center">Amazon S3</td>
+<td style="text-align:center">Google Cloud Storage</td>
+</tr>
+<tr>
+<td>關聯式資料庫</td>
+<td style="text-align:center">Amazon RDS</td>
+<td style="text-align:center">Google Cloud SQL</td>
+</tr>
+<tr>
+<td>NoSQL</td>
+<td style="text-align:center">Amazon DynamoDB</td>
+<td style="text-align:center">Google Cloud Bigtable</td>
+</tr>
+<tr>
+<td>CDN</td>
+<td style="text-align:center">AWS Cloudfront</td>
+<td style="text-align:center">Google Cloud CDN</td>
+</tr>
+<tr>
+<td>監控</td>
+<td style="text-align:center">Amazon CloudWatch</td>
+<td style="text-align:center">Google Cloud Monitoring and Google Cloud Logging</td>
+</tr>
+<tr>
+<td>權限管理</td>
+<td style="text-align:center">AWS Identity and Access Management (IAM)</td>
+<td style="text-align:center">Google Cloud Identity &amp; Access Management (Cloud IAM)</td>
+</tr>
+<tr>
+<td>DNS</td>
+<td style="text-align:center">Amazon Route 53</td>
+<td style="text-align:center">Google Cloud DNS</td>
+</tr>
+</tbody>
+</table>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>大多數的人聽到雲端，第一個想到的大多都是 AWS，但目前各家雲端競爭激烈，除了上述介紹的以外還有 MS 的 Azure 等，各家也不斷的在推出新的服務及費率，也或許不會只採用一家的服務，建議還是依照自己的需求選擇自己合適的服務。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -215,29 +326,13 @@ ga('send', 'pageview');
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">EC2</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">LAMP</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Apache</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PHP</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">GCP</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -250,86 +345,113 @@ ga('send', 'pageview');
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://blog.dexiang.me/tech/gcp-vs-aws/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/tech/AWS-EC2-LAMP-1/" class="archive-article-date">
-  	<time datetime="2016-10-16T16:33:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-17</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/tech/remove-ds-store/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          刪除 .DS_Store 隱藏檔
+        
+      </div>
+    </a>
+  
+  
+    <a href="/tech/about-hyper-text-transfer-protocol/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">簡介 HTTP &amp; HTTPS &amp; HTTP2 協定</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/tech/AWS-EC2-LAMP-1/">AWS EC2 LAMP (1)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AWS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">EC2</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">LAMP</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Apache</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PHP</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/tech//" class="article-tag-list-link color5">tech</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -352,9 +474,9 @@ ga('send', 'pageview');
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

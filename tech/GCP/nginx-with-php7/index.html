@@ -6,18 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://blog.dexiang.me">
-  <title>Tag: Apache | Tony 字傳</title>
+  <title>CentOS 7 上安裝與設定 Nginx + PHP7 | Tony 字傳</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="希望藉由分享 &amp; 紀錄，來讓自己的生活留下足跡，也希望藉由我的分享來幫助更多的人">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Tony 字傳">
-<meta property="og:url" content="http://blog.dexiang.me/tags/Apache/index.html">
+  <meta name="description" content="在過去很多人選用的 Web Server 都是 Apache，但最近許多人有了不同的選擇，就是 LNMP，其中 Web Server 改成了 Nginx，在這裡也跟大家一起來建置其中的 Nginx + PHP7。  注：以下的環境是在 GCE (Google Compute Engine) + CentOS7 上完成。  安裝 Nginx要先在 yum 中增加 Nginx，手動加入 repo 設定">
+<meta name="keywords" content="MacOSX,git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CentOS 7 上安裝與設定 Nginx + PHP7">
+<meta property="og:url" content="http://blog.dexiang.me/tech/GCP/nginx-with-php7/index.html">
 <meta property="og:site_name" content="Tony 字傳">
-<meta property="og:description" content="希望藉由分享 &amp; 紀錄，來讓自己的生活留下足跡，也希望藉由我的分享來幫助更多的人">
+<meta property="og:description" content="在過去很多人選用的 Web Server 都是 Apache，但最近許多人有了不同的選擇，就是 LNMP，其中 Web Server 改成了 Nginx，在這裡也跟大家一起來建置其中的 Nginx + PHP7。  注：以下的環境是在 GCE (Google Compute Engine) + CentOS7 上完成。  安裝 Nginx要先在 yum 中增加 Nginx，手動加入 repo 設定">
 <meta property="og:locale" content="zh-TW">
+<meta property="og:image" content="http://blog.dexiang.me/tech/GCP/nginx-with-php7/welcome_to_nginx.png">
+<meta property="og:image" content="http://blog.dexiang.me/tech/GCP/nginx-with-php7/php_info.png">
+<meta property="og:updated_time" content="2017-10-15T12:43:58.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tony 字傳">
-<meta name="twitter:description" content="希望藉由分享 &amp; 紀錄，來讓自己的生活留下足跡，也希望藉由我的分享來幫助更多的人">
+<meta name="twitter:title" content="CentOS 7 上安裝與設定 Nginx + PHP7">
+<meta name="twitter:description" content="在過去很多人選用的 Web Server 都是 Apache，但最近許多人有了不同的選擇，就是 LNMP，其中 Web Server 改成了 Nginx，在這裡也跟大家一起來建置其中的 Nginx + PHP7。  注：以下的環境是在 GCE (Google Compute Engine) + CentOS7 上完成。  安裝 Nginx要先在 yum 中增加 Nginx，手動加入 repo 設定">
+<meta name="twitter:image" content="http://blog.dexiang.me/tech/GCP/nginx-with-php7/welcome_to_nginx.png">
   
     <link rel="alternative" href="/atom.xml" title="Tony 字傳" type="application/atom+xml">
   
@@ -176,68 +181,84 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-nginx-with-php7" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/tech/AWS-EC2-LAMP-2/" class="archive-article-date">
-  	<time datetime="2016-10-17T16:00:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-18</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/tech/AWS-EC2-LAMP-2/">AWS EC2 LAMP (2)</a>
+    <h1 class="article-title" itemprop="name">
+      CentOS 7 上安裝與設定 Nginx + PHP7
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/tech/GCP/nginx-with-php7/" class="archive-article-date">
+  	<time datetime="2017-06-22T11:18:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在過去很多人選用的 Web Server 都是 Apache，但最近許多人有了不同的選擇，就是 LNMP，其中 Web Server 改成了 Nginx，在這裡也跟大家一起來建置其中的 Nginx + PHP7。</p>
+<blockquote>
+<p>注：以下的環境是在 GCE (Google Compute Engine) + CentOS7 上完成。</p>
+</blockquote>
+<h2 id="安裝-Nginx"><a href="#安裝-Nginx" class="headerlink" title="安裝 Nginx"></a>安裝 Nginx</h2><p>要先在 yum 中增加 Nginx，手動加入 repo 設定，這樣就可以透過 yum 安裝</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 讓 yum 能找到 nginx</div><div class="line">$ vim /etc/yum.repos.d/nginx.repo</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>不同的 OS 有不一樣的設定，以下是我的設定 (CentOS7)，其中的 <code>$releasever</code> 改成 7</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[nginx]</div><div class="line">name=nginx repo</div><div class="line">baseurl=http://nginx.org/packages/centos/$releasever/$basearch/</div><div class="line">gpgcheck=0</div><div class="line">enabled=1</div></pre></td></tr></table></figure>
+<p>設定好了以後確認版本 (我的版本是 1.10.2)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ yum info nginx</div></pre></td></tr></table></figure>
+<p>安裝</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo yum install -y nginx</div></pre></td></tr></table></figure>
+<p>啟用 &amp; 設定開機啟動</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo systemctl start nginx</div><div class="line">$ sudo systemctl enable nginx</div></pre></td></tr></table></figure>
+<p>再來就可以試試看可不可以連線啦～成功的話就會看到以下畫面</p>
+<img src="/tech/GCP/nginx-with-php7/welcome_to_nginx.png" alt="Nginx 歡迎頁面" title="Nginx 歡迎頁面">
+<h2 id="安裝-PHP7"><a href="#安裝-PHP7" class="headerlink" title="安裝 PHP7"></a>安裝 PHP7</h2><p>因 CentOS 裡的 yum 沒有收錄 PHP，所以自行加入 PHP 7.1 的套件源，這裡就先安裝 webtatic 的 repo，再透過 yum 安裝 PHP</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># epel</div><div class="line">$ sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm</div><div class="line"># webtatic</div><div class="line">$ sudo rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm</div><div class="line"># PHP</div><div class="line">$ sudo yum install -y php71w-cli php71w-fpm php71w-common php71w-pdo php71w-mbstring</div></pre></td></tr></table></figure>
+<p>啟用 &amp; 設定開機啟動</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo systemctl start php-fpm </div><div class="line">$ sudo systemctl enable php-fpm</div></pre></td></tr></table></figure>
+<p>確認安裝 &amp; 查詢版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ php -V</div></pre></td></tr></table></figure>
+<h3 id="設定-Nginx-和-PHP7"><a href="#設定-Nginx-和-PHP7" class="headerlink" title="設定 Nginx 和 PHP7"></a>設定 Nginx 和 PHP7</h3><p>設定 Nginx 可支援 PHP，在需要的服務中加上以下片段，以我的需求是希望全部都支援 PHP，故加在全域的 <code>server</code> 區塊中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo vim /etc/nginx/nginx.conf</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">location ~* \.php$ &#123;</div><div class="line">    fastcgi_pass 127.0.0.1:9000;</div><div class="line">    fastcgi_index index.php;</div><div class="line">    fastcgi_split_path_info ^(.+\.php)(.*)$;</div><div class="line">    include fastcgi_params;</div><div class="line">    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Nginx Server 啟動所使用的使用者 CentOS 預設用 <code>nginx</code><br>Virtual Host 放在 <code>/etc/nginx/conf.d/*.conf</code></p>
+</blockquote>
+<p>再來就是設定 PHP-FPM</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim /etc/php-fpm.d/www.conf</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">user = nginx</div><div class="line">group = nginx</div></pre></td></tr></table></figure>
+<p>Nginx 的預設目錄是 <code>/usr/share/nginx/html</code>，在目錄下建一個 index.php 測試是否可以正常運行</p>
+<img src="/tech/GCP/nginx-with-php7/php_info.png" alt="Nginx PHP Info" title="Nginx PHP Info">
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AWS</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">MacOSX</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">EC2</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">LAMP</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Apache</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PHP</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -245,91 +266,113 @@ ga('send', 'pageview');
         		<li class="article-tag-list-item">
         			<a href="/categories/tech//" class="article-tag-list-link color5">tech</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/tech/GCP//" class="article-tag-list-link color4">GCP</a>
+        		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://blog.dexiang.me/tech/GCP/nginx-with-php7/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/tech/AWS-EC2-LAMP-1/" class="archive-article-date">
-  	<time datetime="2016-10-16T16:33:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-17</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/tech/start-gcp-and-gce/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">開始動手做吧～ 在 GCP 上建立自己的虛擬主機</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/tech/AWS-EC2-LAMP-1/">AWS EC2 LAMP (1)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AWS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">EC2</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">LAMP</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Apache</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PHP</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/tech//" class="article-tag-list-link color5">tech</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -352,9 +395,9 @@ ga('send', 'pageview');
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

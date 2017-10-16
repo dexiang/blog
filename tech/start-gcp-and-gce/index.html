@@ -6,18 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://blog.dexiang.me">
-  <title>Tag: Apache | Tony 字傳</title>
+  <title>開始動手做吧～ 在 GCP 上建立自己的虛擬主機 | Tony 字傳</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="希望藉由分享 &amp; 紀錄，來讓自己的生活留下足跡，也希望藉由我的分享來幫助更多的人">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Tony 字傳">
-<meta property="og:url" content="http://blog.dexiang.me/tags/Apache/index.html">
+  <meta name="description" content="最近申請了 GCP 上的帳號，首年免費試用，且送 300 美金，立馬開一台來玩玩啊。上面也有免費的機器可以使用，在盤算著是否可以把 AWS 上一些小的測試服務搬過來。 GCP 試用服務第一年免費獲得 $300 美元的試用額度，當 12 個月後或用完 $300 美元試用額度後結束試用，若是沒有用完，這筆金額將在 12 個月後作廢。Google Cloud Platform 主控台頂端會顯示剩餘的試用">
+<meta name="keywords" content="GCP,GCE">
+<meta property="og:type" content="article">
+<meta property="og:title" content="開始動手做吧～ 在 GCP 上建立自己的虛擬主機">
+<meta property="og:url" content="http://blog.dexiang.me/tech/start-gcp-and-gce/index.html">
 <meta property="og:site_name" content="Tony 字傳">
-<meta property="og:description" content="希望藉由分享 &amp; 紀錄，來讓自己的生活留下足跡，也希望藉由我的分享來幫助更多的人">
+<meta property="og:description" content="最近申請了 GCP 上的帳號，首年免費試用，且送 300 美金，立馬開一台來玩玩啊。上面也有免費的機器可以使用，在盤算著是否可以把 AWS 上一些小的測試服務搬過來。 GCP 試用服務第一年免費獲得 $300 美元的試用額度，當 12 個月後或用完 $300 美元試用額度後結束試用，若是沒有用完，這筆金額將在 12 個月後作廢。Google Cloud Platform 主控台頂端會顯示剩餘的試用">
 <meta property="og:locale" content="zh-TW">
+<meta property="og:image" content="http://blog.dexiang.me/tech/start-gcp-and-gce/create_project.png">
+<meta property="og:image" content="http://blog.dexiang.me/tech/start-gcp-and-gce/create_vm.png">
+<meta property="og:image" content="http://blog.dexiang.me/tech/start-gcp-and-gce/ssh_key.png">
+<meta property="og:updated_time" content="2017-10-15T12:44:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tony 字傳">
-<meta name="twitter:description" content="希望藉由分享 &amp; 紀錄，來讓自己的生活留下足跡，也希望藉由我的分享來幫助更多的人">
+<meta name="twitter:title" content="開始動手做吧～ 在 GCP 上建立自己的虛擬主機">
+<meta name="twitter:description" content="最近申請了 GCP 上的帳號，首年免費試用，且送 300 美金，立馬開一台來玩玩啊。上面也有免費的機器可以使用，在盤算著是否可以把 AWS 上一些小的測試服務搬過來。 GCP 試用服務第一年免費獲得 $300 美元的試用額度，當 12 個月後或用完 $300 美元試用額度後結束試用，若是沒有用完，這筆金額將在 12 個月後作廢。Google Cloud Platform 主控台頂端會顯示剩餘的試用">
+<meta name="twitter:image" content="http://blog.dexiang.me/tech/start-gcp-and-gce/create_project.png">
   
     <link rel="alternative" href="/atom.xml" title="Tony 字傳" type="application/atom+xml">
   
@@ -176,68 +182,94 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-start-gcp-and-gce" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/tech/AWS-EC2-LAMP-2/" class="archive-article-date">
-  	<time datetime="2016-10-17T16:00:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-18</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/tech/AWS-EC2-LAMP-2/">AWS EC2 LAMP (2)</a>
+    <h1 class="article-title" itemprop="name">
+      開始動手做吧～ 在 GCP 上建立自己的虛擬主機
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/tech/start-gcp-and-gce/" class="archive-article-date">
+  	<time datetime="2017-06-19T08:04:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近申請了 GCP 上的帳號，首年免費試用，且送 300 美金，立馬開一台來玩玩啊。上面也有免費的機器可以使用，在盤算著是否可以把 AWS 上一些小的測試服務搬過來。</p>
+<h2 id="GCP-試用服務"><a href="#GCP-試用服務" class="headerlink" title="GCP 試用服務"></a>GCP 試用服務</h2><p>第一年免費獲得 $300 美元的試用額度，當 12 個月後或用完 $300 美元試用額度後結束試用，若是沒有用完，這筆金額將在 12 個月後作廢。Google Cloud Platform 主控台頂端會顯示剩餘的試用額度和天數。</p>
+<h2 id="GCP-永久免費服務"><a href="#GCP-永久免費服務" class="headerlink" title="GCP 永久免費服務"></a>GCP 永久免費服務</h2><ul>
+<li>Google Compute Engine<ul>
+<li>每個月 1 台 f1-micro VM (限定 US regions，除 Northern Virginia：us-central1、us-west1、us-east1)</li>
+<li>每個月 30 GB 硬碟 &amp; 5 GB 快照</li>
+<li>每個月 1 GB 的網路出口流量 (除了中國和澳洲)</li>
+</ul>
+</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li><p>Google Cloud Datastore</p>
+<ul>
+<li>1 GB storage</li>
+<li>50,000 reads, 20,000 writes, 20,000 deletes</li>
+</ul>
+</li>
+<li><p>Google Cloud Storage</p>
+<ul>
+<li>每個月 5 GB of Regional Storage (US regions only)</li>
+<li>5000 Class A Operations per month</li>
+<li>50000 Class B Operations per month</li>
+<li>1 GB network egress from North America to all region destinations per month (excluding China and Australia)</li>
+</ul>
+</li>
+<li><p>Google Cloud Functions</p>
+<ul>
+<li>2 million invocations per month (includes both background and HTTP invocations)</li>
+<li>400,000 GB-seconds, 200,000 GHz-seconds of compute time</li>
+<li>5 GB network egress per month</li>
+</ul>
+</li>
+</ul>
+<p>這裡只介紹了部分的服務，若是有興趣的可以參考 GCP 完整的介紹<br><a href="https://cloud.google.com/free/docs/always-free-usage-limits/" title="GCP 永久免費服務" target="_blank" rel="external">https://cloud.google.com/free/docs/always-free-usage-limits/</a></p>
+<p>了解完方案後，就可以開始建立自己的專案啦～</p>
+<h2 id="建立自己的虛擬主機"><a href="#建立自己的虛擬主機" class="headerlink" title="建立自己的虛擬主機"></a>建立自己的虛擬主機</h2><h3 id="建立專案"><a href="#建立專案" class="headerlink" title="建立專案"></a>建立專案</h3><img src="/tech/start-gcp-and-gce/create_project.png" alt="Create Project" title="Create Project">
+<p>點選上方功能列 → 選擇新增專案填 → 寫專案名稱</p>
+<h3 id="建立-VM-執行個體"><a href="#建立-VM-執行個體" class="headerlink" title="建立 VM 執行個體"></a>建立 VM 執行個體</h3><p>選擇剛建立的專案 → 進入 Compute Engine → VM 執行個體 → 建立</p>
+<img src="/tech/start-gcp-and-gce/create_vm.png" alt="Create VM" title="Create VM">
+<p>區域：可選擇您所在的區域，像我因為要開免費的機器，所以選擇 <code>us-west1</code><br>費率：右方可以估算您目前開的機器大概會花費多少<br>若是是 WEB server 記得要開防火牆</p>
+<h3 id="連線-VM"><a href="#連線-VM" class="headerlink" title="連線 VM"></a>連線 VM</h3><p>建立以後就要要連上去啦～我在這裡是用 SSH 的方式去連線。</p>
+<img src="/tech/start-gcp-and-gce/ssh_key.png" alt="SSH Key" title="SSH Key">
+<p>方法是：到 Compute Engine → 設定中繼資料 → SSH 金鑰 → 填入你的 SSH public key</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AWS</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">GCP</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">EC2</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">LAMP</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Apache</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PHP</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">GCE</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -250,86 +282,113 @@ ga('send', 'pageview');
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://blog.dexiang.me/tech/start-gcp-and-gce/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/tech/AWS-EC2-LAMP-1/" class="archive-article-date">
-  	<time datetime="2016-10-16T16:33:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-17</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/tech/GCP/nginx-with-php7/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          CentOS 7 上安裝與設定 Nginx + PHP7
+        
+      </div>
+    </a>
+  
+  
+    <a href="/tech/remove-ds-store/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">刪除 .DS_Store 隱藏檔</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/tech/AWS-EC2-LAMP-1/">AWS EC2 LAMP (1)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AWS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">EC2</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">LAMP</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Apache</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PHP</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/tech//" class="article-tag-list-link color5">tech</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -352,9 +411,9 @@ ga('send', 'pageview');
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
