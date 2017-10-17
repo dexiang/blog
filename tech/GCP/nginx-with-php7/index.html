@@ -8,20 +8,20 @@
   <link rel="dns-prefetch" href="http://blog.dexiang.me">
   <title>CentOS 7 上安裝與設定 Nginx + PHP7 | Tony 字傳</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在過去很多人選用的 Web Server 都是 Apache，但最近許多人有了不同的選擇，就是 LNMP，其中 Web Server 改成了 Nginx，在這裡也跟大家一起來建置其中的 Nginx + PHP7。  注：以下的環境是在 GCE (Google Compute Engine) + CentOS7 上完成。  安裝 Nginx要先在 yum 中增加 Nginx，手動加入 repo 設定">
+  <meta name="description" content="之前在工作上幾乎都是採用 Apache，前一陣子常聽到同事說 Nginx，但我卻沒有實際用過，趁這這次試用 GCP，也來試試看 Nginx  注：以下的環境是在 GCE (Google Compute Engine) + CentOS7 上完成。  安裝 Nginx要在 yum 中增加 Nginx，需手動加入 repo 設定，這樣就可以透過 yum 安裝了 12# 讓 yum 能找到 nginx$">
 <meta name="keywords" content="MacOSX,git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CentOS 7 上安裝與設定 Nginx + PHP7">
 <meta property="og:url" content="http://blog.dexiang.me/tech/GCP/nginx-with-php7/index.html">
 <meta property="og:site_name" content="Tony 字傳">
-<meta property="og:description" content="在過去很多人選用的 Web Server 都是 Apache，但最近許多人有了不同的選擇，就是 LNMP，其中 Web Server 改成了 Nginx，在這裡也跟大家一起來建置其中的 Nginx + PHP7。  注：以下的環境是在 GCE (Google Compute Engine) + CentOS7 上完成。  安裝 Nginx要先在 yum 中增加 Nginx，手動加入 repo 設定">
+<meta property="og:description" content="之前在工作上幾乎都是採用 Apache，前一陣子常聽到同事說 Nginx，但我卻沒有實際用過，趁這這次試用 GCP，也來試試看 Nginx  注：以下的環境是在 GCE (Google Compute Engine) + CentOS7 上完成。  安裝 Nginx要在 yum 中增加 Nginx，需手動加入 repo 設定，這樣就可以透過 yum 安裝了 12# 讓 yum 能找到 nginx$">
 <meta property="og:locale" content="zh-TW">
 <meta property="og:image" content="http://blog.dexiang.me/tech/GCP/nginx-with-php7/welcome_to_nginx.png">
 <meta property="og:image" content="http://blog.dexiang.me/tech/GCP/nginx-with-php7/php_info.png">
-<meta property="og:updated_time" content="2017-10-15T12:43:58.000Z">
+<meta property="og:updated_time" content="2017-08-22T08:18:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS 7 上安裝與設定 Nginx + PHP7">
-<meta name="twitter:description" content="在過去很多人選用的 Web Server 都是 Apache，但最近許多人有了不同的選擇，就是 LNMP，其中 Web Server 改成了 Nginx，在這裡也跟大家一起來建置其中的 Nginx + PHP7。  注：以下的環境是在 GCE (Google Compute Engine) + CentOS7 上完成。  安裝 Nginx要先在 yum 中增加 Nginx，手動加入 repo 設定">
+<meta name="twitter:description" content="之前在工作上幾乎都是採用 Apache，前一陣子常聽到同事說 Nginx，但我卻沒有實際用過，趁這這次試用 GCP，也來試試看 Nginx  注：以下的環境是在 GCE (Google Compute Engine) + CentOS7 上完成。  安裝 Nginx要在 yum 中增加 Nginx，需手動加入 repo 設定，這樣就可以透過 yum 安裝了 12# 讓 yum 能找到 nginx$">
 <meta name="twitter:image" content="http://blog.dexiang.me/tech/GCP/nginx-with-php7/welcome_to_nginx.png">
   
     <link rel="alternative" href="/atom.xml" title="Tony 字傳" type="application/atom+xml">
@@ -201,40 +201,46 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在過去很多人選用的 Web Server 都是 Apache，但最近許多人有了不同的選擇，就是 LNMP，其中 Web Server 改成了 Nginx，在這裡也跟大家一起來建置其中的 Nginx + PHP7。</p>
+        <p>之前在工作上幾乎都是採用 Apache，前一陣子常聽到同事說 Nginx，但我卻沒有實際用過，趁這這次試用 GCP，也來試試看 Nginx</p>
 <blockquote>
 <p>注：以下的環境是在 GCE (Google Compute Engine) + CentOS7 上完成。</p>
 </blockquote>
-<h2 id="安裝-Nginx"><a href="#安裝-Nginx" class="headerlink" title="安裝 Nginx"></a>安裝 Nginx</h2><p>要先在 yum 中增加 Nginx，手動加入 repo 設定，這樣就可以透過 yum 安裝</p>
+<h2 id="安裝-Nginx"><a href="#安裝-Nginx" class="headerlink" title="安裝 Nginx"></a>安裝 Nginx</h2><p>要在 yum 中增加 Nginx，需手動加入 repo 設定，這樣就可以透過 yum 安裝了</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 讓 yum 能找到 nginx</div><div class="line">$ vim /etc/yum.repos.d/nginx.repo</div></pre></td></tr></table></figure>
 <a id="more"></a>
 <p>不同的 OS 有不一樣的設定，以下是我的設定 (CentOS7)，其中的 <code>$releasever</code> 改成 7</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[nginx]</div><div class="line">name=nginx repo</div><div class="line">baseurl=http://nginx.org/packages/centos/$releasever/$basearch/</div><div class="line">gpgcheck=0</div><div class="line">enabled=1</div></pre></td></tr></table></figure>
-<p>設定好了以後確認版本 (我的版本是 1.10.2)</p>
+<p>設定好了以後確認版本 (我的版本是 1.12.1)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ yum info nginx</div></pre></td></tr></table></figure>
-<p>安裝</p>
+<p>安裝 nginx</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo yum install -y nginx</div></pre></td></tr></table></figure>
-<p>啟用 &amp; 設定開機啟動</p>
+<p>啟用 nginx &amp; 設定開機時啟動</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo systemctl start nginx</div><div class="line">$ sudo systemctl enable nginx</div></pre></td></tr></table></figure>
 <p>再來就可以試試看可不可以連線啦～成功的話就會看到以下畫面</p>
 <img src="/tech/GCP/nginx-with-php7/welcome_to_nginx.png" alt="Nginx 歡迎頁面" title="Nginx 歡迎頁面">
 <h2 id="安裝-PHP7"><a href="#安裝-PHP7" class="headerlink" title="安裝 PHP7"></a>安裝 PHP7</h2><p>因 CentOS 裡的 yum 沒有收錄 PHP，所以自行加入 PHP 7.1 的套件源，這裡就先安裝 webtatic 的 repo，再透過 yum 安裝 PHP</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># epel</div><div class="line">$ sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm</div><div class="line"># webtatic</div><div class="line">$ sudo rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm</div><div class="line"># PHP</div><div class="line">$ sudo yum install -y php71w-cli php71w-fpm php71w-common php71w-pdo php71w-mbstring</div></pre></td></tr></table></figure>
-<p>啟用 &amp; 設定開機啟動</p>
+<p>啟用 php &amp; 設定開機時啟動</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo systemctl start php-fpm </div><div class="line">$ sudo systemctl enable php-fpm</div></pre></td></tr></table></figure>
 <p>確認安裝 &amp; 查詢版本</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ php -V</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ php -v</div></pre></td></tr></table></figure>
 <h3 id="設定-Nginx-和-PHP7"><a href="#設定-Nginx-和-PHP7" class="headerlink" title="設定 Nginx 和 PHP7"></a>設定 Nginx 和 PHP7</h3><p>設定 Nginx 可支援 PHP，在需要的服務中加上以下片段，以我的需求是希望全部都支援 PHP，故加在全域的 <code>server</code> 區塊中：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo vim /etc/nginx/nginx.conf</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">location ~* \.php$ &#123;</div><div class="line">    fastcgi_pass 127.0.0.1:9000;</div><div class="line">    fastcgi_index index.php;</div><div class="line">    fastcgi_split_path_info ^(.+\.php)(.*)$;</div><div class="line">    include fastcgi_params;</div><div class="line">    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>Nginx Server 啟動所使用的使用者 CentOS 預設用 <code>nginx</code><br>Virtual Host 放在 <code>/etc/nginx/conf.d/*.conf</code></p>
-</blockquote>
 <p>再來就是設定 PHP-FPM</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim /etc/php-fpm.d/www.conf</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">user = nginx</div><div class="line">group = nginx</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Nginx Server 啟動所使用的使用者 CentOS 預設用 <code>nginx</code></p>
+</blockquote>
+<p>都設定完成後就可以重啟啦～</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo systemctl restart php-fpm</div><div class="line">$ sudo systemctl restart nginx</div></pre></td></tr></table></figure>
 <p>Nginx 的預設目錄是 <code>/usr/share/nginx/html</code>，在目錄下建一個 index.php 測試是否可以正常運行</p>
 <img src="/tech/GCP/nginx-with-php7/php_info.png" alt="Nginx PHP Info" title="Nginx PHP Info">
+<h2 id="Virtual-Host"><a href="#Virtual-Host" class="headerlink" title="Virtual Host"></a>Virtual Host</h2><p>Virtual Host 設定放在 <code>/etc/nginx/conf.d/*.conf</code></p>
+<h2 id="troubleshooting"><a href="#troubleshooting" class="headerlink" title="troubleshooting"></a>troubleshooting</h2><p>2017-07-21<br>在建置新的 GCE 時遇到 html &amp; php 都可以正常執行，但是讀取 mp4 檔時會吐出 <code>13: Permission denied</code><br>後來查到是因為 SELinux，但我是測試用的就先果斷關閉了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim /etc/sysconfig/selinux</div></pre></td></tr></table></figure>
+<p>把 <code>SELINUX=enforcing</code> 改成 <code>SELINUX=disabled</code>，改完以後重開就可以了</p>
 
       
 
@@ -336,6 +342,15 @@ ga('send', 'pageview');
 
   
 <nav id="article-nav">
+  
+    <a href="/tech/reinstall-macOS/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          重新安裝 macOS
+        
+      </div>
+    </a>
   
   
     <a href="/tech/start-gcp-and-gce/" id="article-nav-older" class="article-nav-link-wrap">
@@ -469,7 +484,31 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">EC2</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">LAMP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Apache</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">golang</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MarkDown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -497,31 +536,23 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">EC2</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">LAMP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Apache</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MarkDown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">GCP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CDN</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">GoDaddy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">CloudFlare</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -538,6 +569,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">mac</a>
               </li>
              
               <li class="article-tag-list-item">

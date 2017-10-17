@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.dexiang.me/tech/godaddy-to-cloudflare/</loc>
+    
+    <lastmod>2017-10-17T10:32:37.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.dexiang.me/tech/reinstall-macOS/</loc>
+    
+    <lastmod>2017-10-17T08:19:16.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.dexiang.me/tech/start-gcp-and-gce/</loc>
     
     <lastmod>2017-10-15T12:44:10.000Z</lastmod>
@@ -12,13 +26,6 @@
     <loc>http://blog.dexiang.me/tech/remove-ds-store/</loc>
     
     <lastmod>2017-10-15T12:44:05.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.dexiang.me/tech/GCP/nginx-with-php7/</loc>
-    
-    <lastmod>2017-10-15T12:43:58.000Z</lastmod>
     
   </url>
   
@@ -103,6 +110,13 @@
     <loc>http://blog.dexiang.me/tags/index.html</loc>
     
     <lastmod>2017-09-26T16:07:32.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.dexiang.me/tech/GCP/nginx-with-php7/</loc>
+    
+    <lastmod>2017-08-22T08:18:20.000Z</lastmod>
     
   </url>
   
