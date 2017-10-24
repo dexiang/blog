@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.dexiang.me/tech/SEO-basic/</loc>
+    
+    <lastmod>2017-10-24T11:30:36.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.dexiang.me/tech/godaddy-to-cloudflare/</loc>
     
     <lastmod>2017-10-17T10:32:37.000Z</lastmod>
