@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.dexiang.me/tech/GPS-NMEA/</loc>
+    
+    <lastmod>2017-11-06T08:50:17.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.dexiang.me/tech/MarkDown-Introduction/</loc>
+    
+    <lastmod>2017-11-05T08:18:20.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.dexiang.me/tech/SEO-basic/</loc>
     
     <lastmod>2017-10-24T11:30:36.000Z</lastmod>
@@ -89,13 +103,6 @@
     <loc>http://blog.dexiang.me/tech/AWS-EC2-LAMP-2/</loc>
     
     <lastmod>2017-10-15T12:40:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.dexiang.me/tech/MarkDown-Introduction/</loc>
-    
-    <lastmod>2017-10-15T12:37:54.000Z</lastmod>
     
   </url>
   
