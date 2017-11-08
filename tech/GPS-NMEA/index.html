@@ -21,7 +21,7 @@
 <meta property="og:image" content="http://blog.dexiang.me/tech/GPS-NMEA/GGA_600.png">
 <meta property="og:image" content="http://blog.dexiang.me/tech/GPS-NMEA/GSV_300.png">
 <meta property="og:image" content="http://blog.dexiang.me/tech/GPS-NMEA/GSA_400.png">
-<meta property="og:updated_time" content="2017-11-06T08:50:17.000Z">
+<meta property="og:updated_time" content="2017-11-08T01:47:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GPS 資料格式">
 <meta name="twitter:description" content="什麼是 NMEA file ？美國國家海洋電子協會 (National Marine Electronics Association，NMEA) 制定了 GPS 協定標準規格，NMEA 0183 的資料格式中記錄了座標、方位、速度、衛星有效數量等等的資訊。">
@@ -215,8 +215,8 @@ ga('send', 'pageview');
 <blockquote>
 <p><1> UTC 時間，格式：hhmmss.ss（時分秒）   </1></p>
 <p><2> 定位狀態，A=有效定位，V=無效定位  </2></p>
-<p><3> 緯度 ddmm.mmmm（度分）格式（位數不足則補 0）   </3></p>
-<p><4> 緯度半球 N（北半球）或 S（南半球） </4></p>
+<p><3> 緯度 ddmm.mmmm（度分）格式（位數不足則補 0）  </3></p>
+<p><4> 緯度半球 N（北半球）或 S（南半球）   </4></p>
 <p><5> 經度 dddmm.mmmm（度分）格式（位數不足則補 0）   </5></p>
 <p><6> 經度半球 E（東經）或 W（西經）  </6></p>
 <p><7> 地面速率（000.0~999.9節，位數不足則補 0）  </7></p>
@@ -226,6 +226,12 @@ ga('send', 'pageview');
 <p><11> 磁偏角方向，E（東）或W（西）  </11></p>
 <p><12> 模式指示（僅 NMEA0183 3.00 版本輸出，A=自主定位，D=差分，E=估算，N=資料無效）  </12></p>
 </blockquote>
+<h4 id="經緯度轉換"><a href="#經緯度轉換" class="headerlink" title="經緯度轉換"></a>經緯度轉換</h4><p>NMEA 紀錄格式為 <code>ddmm.mmmm</code></p>
+<blockquote>
+<p>以 4124.8963 為例<br>先除 100 得到 41.248963<br>將小數點後面運算 除60 乘100 =&gt; 0.248963*100/60 = 0.103303<br>再加上先小數點前的值 41+0.103303=41.103303<br>這樣就可在 Google Map 中使用</p>
+</blockquote>
+<p>若要轉換成 Google Map 可用的格式可參考以下程式碼</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">// Javascript Code</div><div class="line">function formatGPS(number, quadrant) &#123;</div><div class="line"></div><div class="line">        if (quadrant == &apos;W&apos;) &#123;</div><div class="line">            quadrant_value = -1;</div><div class="line">        &#125; else if (quadrant == &apos;S&apos;) &#123;</div><div class="line">            quadrant_value = -1;</div><div class="line">        &#125; else &#123;</div><div class="line">            quadrant_value = 1;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        return (((number/100).toString().split(&quot;.&quot;)[0])*1 + (&quot;0.&quot; + (number/100).toString().split(&quot;.&quot;)[1])*100/60) * quadrant_value;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 <h3 id="GPGGA-Global-Positioning-System-Fix-Data-Time-Position-and-fix-related-data-for-a-GPS-receiver"><a href="#GPGGA-Global-Positioning-System-Fix-Data-Time-Position-and-fix-related-data-for-a-GPS-receiver" class="headerlink" title="GPGGA, Global Positioning System Fix Data. Time, Position and fix related data for a GPS receiver"></a>GPGGA, Global Positioning System Fix Data. Time, Position and fix related data for a GPS receiver</h3><p>GPS 定位資訊，資料格式為：</p>
 <img src="/tech/GPS-NMEA/GGA_600.png" alt="GGA" title="GGA">
 <blockquote>
@@ -502,10 +508,6 @@ ga('send', 'pageview');
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">mac</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">golang</a>
               </li>
              
@@ -538,10 +540,6 @@ ga('send', 'pageview');
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MarkDown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SEO</a>
               </li>
              
@@ -570,7 +568,7 @@ ga('send', 'pageview');
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GCP</a>
+                <a href="javascript:void(0)" class="js-tag color4">MarkDown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -598,6 +596,10 @@ ga('send', 'pageview');
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GCP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">MacOSX</a>
               </li>
              
@@ -607,6 +609,10 @@ ga('send', 'pageview');
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">GCE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">mac</a>
               </li>
             
             <div class="clearfix"></div>
