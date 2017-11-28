@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.dexiang.me/"/>
-  <updated>2017-11-08T01:47:27.000Z</updated>
+  <updated>2017-11-28T16:33:15.816Z</updated>
   <id>http://blog.dexiang.me/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>OWASP Top 10 2017</title>
+    <link href="http://blog.dexiang.me/tech/OWASP-2017/"/>
+    <id>http://blog.dexiang.me/tech/OWASP-2017/</id>
+    <published>2017-11-21T08:04:35.000Z</published>
+    <updated>2017-11-28T16:33:15.816Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;這禮拜一去參加了 OWASP 2017 的研討會，其中提到了新發佈的 OWASP Top 10 2017版；先回頭來談一下什麼是 OWASP，在開發系統時，除了功能以外，安全也是必須要著重且注意的，在快速開發的過程中，常常會沒有兼顧到安全這塊；對於部分各戶來說，在還未出包之前大概也不會感覺到資安的重要；OWASP 就統整了十大弱點排名（當然啦～不是只有這十個需要重視）， 最近的一次正式更新是在 2013 年，在這過程中資訊的進步很快，排名也略有變動。&lt;/p&gt;
+&lt;img src=&quot;/tech/OWASP-2017/OWASP_Top_10_2013_with_2017.png&quot; alt=&quot;OWASP Top 10&quot; title=&quot;OWASP Top 10&quot;&gt;
+&lt;p&gt;在研討會中也提到了最新的 OWASP Top 10 2017，與 2013 年比較第一名依舊是 Injection，第二名是身份驗證；然而新版的因考慮了現在的系統採用了許多的 API 讓前後端分離，也搜集了實際企業的 Log 數據，可以從排名中看出都跟最近流行的微服務有關。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="tech" scheme="http://blog.dexiang.me/categories/tech/"/>
+    
+    
+      <category term="OWASP" scheme="http://blog.dexiang.me/tags/OWASP/"/>
+    
+  </entry>
   
   <entry>
     <title>GPS 資料格式</title>
@@ -337,6 +359,27 @@
   </entry>
   
   <entry>
+    <title>雲端主機</title>
+    <link href="http://blog.dexiang.me/tech/Cloud-Server/"/>
+    <id>http://blog.dexiang.me/tech/Cloud-Server/</id>
+    <published>2016-12-09T16:33:06.000Z</published>
+    <updated>2017-10-15T12:36:44.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;之前有一大段時間都把服務放在 AWS 的 EC2 上，但最近在整理環境的時候開始思考，以我的需求有需要把服務放在 EC2 上嗎？ 就開始研究相關的服務，查了一些文章及同事的推薦，就想說把這些訊息分享出來。&lt;/p&gt;
+&lt;h2 id=&quot;虛擬主機&quot;&gt;&lt;a href=&quot;#虛擬主機&quot; class=&quot;headerlink&quot; title=&quot;虛擬主機&quot;&gt;&lt;/a&gt;虛擬主機&lt;/h2&gt;&lt;p&gt;若是有玩過虛擬機的人，例如 VMware、VirtualBox 這些東西，其實原理是一樣的。虛擬主機就像大通舖一樣，一群人要一起共用設施，床位也可能因為旁人的影響而限縮，但優點就是便宜。&lt;/p&gt;
+&lt;h2 id=&quot;VPS&quot;&gt;&lt;a href=&quot;#VPS&quot; class=&quot;headerlink&quot; title=&quot;VPS&quot;&gt;&lt;/a&gt;VPS&lt;/h2&gt;&lt;p&gt;VPS 是 Virtual Private Server 的縮寫，就是在一台機器上以軟體的方式模擬成多台機器，讓這些機器能分享CPU、記憶體、硬碟…等硬體資源，並各自運作不同的程式，不互相干擾。VPS 就像套房一樣，有獨立的衛浴及設施，相對的價格比較高。&lt;/p&gt;
+&lt;p&gt;目前 VPS 的技術比較常見的兩種，分別為 Xen 跟 OpenVZ，兩者使用的虛擬技術不太一樣，OpenVZ 的每一台虛擬機的資源由 OpenVZ 動態控制著，共用著所有的 kernel，實體上來說，每一部虛擬機器並不是真的擁有自己的資源 ( CPU、記憶體…)；而 Xen 則是以模擬硬體的方式，讓每部虛擬機器擁有自己的各種硬體環境，所以，每部虛擬機器是完全獨立的，一旦分到多少的資源，就是多少，不像 OpenVZ 那樣可以動態的調整，因此，採用 XEN 的電腦所能夠分割出來的虛擬機器數量，因為被固定住資源，所以，可能會比較 OpenVZ 來的少。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="tech" scheme="http://blog.dexiang.me/categories/tech/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>雲端服務</title>
     <link href="http://blog.dexiang.me/tech/Cloud-Computing/"/>
     <id>http://blog.dexiang.me/tech/Cloud-Computing/</id>
@@ -353,27 +396,6 @@
 &lt;h2 id=&quot;軟體即服務-Software-as-a-Service-SaaS&quot;&gt;&lt;a
         
       
-    
-    </summary>
-    
-      <category term="tech" scheme="http://blog.dexiang.me/categories/tech/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>雲端主機</title>
-    <link href="http://blog.dexiang.me/tech/Cloud-Server/"/>
-    <id>http://blog.dexiang.me/tech/Cloud-Server/</id>
-    <published>2016-12-09T16:33:06.000Z</published>
-    <updated>2017-10-15T12:36:44.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;之前有一大段時間都把服務放在 AWS 的 EC2 上，但最近在整理環境的時候開始思考，以我的需求有需要把服務放在 EC2 上嗎？ 就開始研究相關的服務，查了一些文章及同事的推薦，就想說把這些訊息分享出來。&lt;/p&gt;
-&lt;h2 id=&quot;虛擬主機&quot;&gt;&lt;a href=&quot;#虛擬主機&quot; class=&quot;headerlink&quot; title=&quot;虛擬主機&quot;&gt;&lt;/a&gt;虛擬主機&lt;/h2&gt;&lt;p&gt;若是有玩過虛擬機的人，例如 VMware、VirtualBox 這些東西，其實原理是一樣的。虛擬主機就像大通舖一樣，一群人要一起共用設施，床位也可能因為旁人的影響而限縮，但優點就是便宜。&lt;/p&gt;
-&lt;h2 id=&quot;VPS&quot;&gt;&lt;a href=&quot;#VPS&quot; class=&quot;headerlink&quot; title=&quot;VPS&quot;&gt;&lt;/a&gt;VPS&lt;/h2&gt;&lt;p&gt;VPS 是 Virtual Private Server 的縮寫，就是在一台機器上以軟體的方式模擬成多台機器，讓這些機器能分享CPU、記憶體、硬碟…等硬體資源，並各自運作不同的程式，不互相干擾。VPS 就像套房一樣，有獨立的衛浴及設施，相對的價格比較高。&lt;/p&gt;
-&lt;p&gt;目前 VPS 的技術比較常見的兩種，分別為 Xen 跟 OpenVZ，兩者使用的虛擬技術不太一樣，OpenVZ 的每一台虛擬機的資源由 OpenVZ 動態控制著，共用著所有的 kernel，實體上來說，每一部虛擬機器並不是真的擁有自己的資源 ( CPU、記憶體…)；而 Xen 則是以模擬硬體的方式，讓每部虛擬機器擁有自己的各種硬體環境，所以，每部虛擬機器是完全獨立的，一旦分到多少的資源，就是多少，不像 OpenVZ 那樣可以動態的調整，因此，採用 XEN 的電腦所能夠分割出來的虛擬機器數量，因為被固定住資源，所以，可能會比較 OpenVZ 來的少。&lt;/p&gt;
     
     </summary>
     

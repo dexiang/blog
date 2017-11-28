@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.dexiang.me/tech/OWASP-2017/</loc>
+    
+    <lastmod>2017-11-28T16:33:15.816Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.dexiang.me/tech/GPS-NMEA/</loc>
     
     <lastmod>2017-11-08T01:47:27.000Z</lastmod>
