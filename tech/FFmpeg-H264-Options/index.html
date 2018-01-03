@@ -17,7 +17,7 @@
 <meta property="og:description" content="H.264 / MPEG-4 AVC 是目前最被廣泛被應用的視訊編碼格式，它的壓縮效率比 MPEG-2、MPEG-4、RV40 …等舊視訊編碼格式還要高許多。 如果要輸出 H.264 / AVC 視訊編碼，則需要 libx264 編碼器，FFmpeg 的組態設定之中必須有 --enable-libx264 則才可以使用。 H.264 有多個版本，版本越高壓縮比就越高（對應到 profile）">
 <meta property="og:locale" content="zh-TW">
 <meta property="og:image" content="http://blog.dexiang.me/tech/FFmpeg-H264-Options/h264.png">
-<meta property="og:updated_time" content="2018-01-03T06:53:53.026Z">
+<meta property="og:updated_time" content="2018-01-03T08:23:20.928Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="FFmpeg H.264 編碼器">
 <meta name="twitter:description" content="H.264 / MPEG-4 AVC 是目前最被廣泛被應用的視訊編碼格式，它的壓縮效率比 MPEG-2、MPEG-4、RV40 …等舊視訊編碼格式還要高許多。 如果要輸出 H.264 / AVC 視訊編碼，則需要 libx264 編碼器，FFmpeg 的組態設定之中必須有 --enable-libx264 則才可以使用。 H.264 有多個版本，版本越高壓縮比就越高（對應到 profile）">
@@ -208,7 +208,7 @@ ga('send', 'pageview');
 <h2 id="碼率控制（Rate-control）"><a href="#碼率控制（Rate-control）" class="headerlink" title="碼率控制（Rate control）"></a>碼率控制（Rate control）</h2><p>Rate control 是指控制 <code>每個畫格用了多少個位元</code> 的方法，這將影響檔案大小和品質分布。這裡就先不探討 Rate control 的種類有哪些。<br>通常會用下列兩種模式： Constant Rate Factor (CRF)、Two-Pass ABR，若沒有控制輸出大小的需求則使用 CRF 即可</p>
 <h3 id="Constant-Rate-Factor（CRF）"><a href="#Constant-Rate-Factor（CRF）" class="headerlink" title="Constant Rate Factor（CRF）"></a>Constant Rate Factor（CRF）</h3><p>固定品質指標，而不在意大小；CRF 會得到最佳的 bitrate 分配結果，缺點是你不能直接指定一個目標 bitrate 或是檔案大小。<br>設定值範圍為 0 – 51（可能會依照編譯版本而不同），0 為最高品質，預設值為 23，建議的範圍在 18 - 28，17 或 18 接近視覺無損，但在技術上來說並不是無損。</p>
 <h3 id="Two-Pass-ABR（Average-Bitrate）"><a href="#Two-Pass-ABR（Average-Bitrate）" class="headerlink" title="Two-Pass ABR（Average Bitrate）"></a>Two-Pass ABR（Average Bitrate）</h3><p>以平均值來說 ABR 與 CBR 相同，但 ABR 允許在 “適當” 的時候使用更好的 bitrate 以取得更好的畫質，但 ABR 是用動態補償的方式來計算畫面的複雜度，也就是說在影片的起始及開頭，或是當畫面不如預期變化的時候則可能會影響到產出。<br>所以在 two-pass 的時候，第一次轉檔時會先分析紀錄影片的內容，第二次再依照分析的結果加以轉碼，但相對的就是非常耗時，要是沒有輸出大小的需求，則用 CRF 即可。</p>
-<h2 id="Preset"><a href="#Preset" class="headerlink" title="Preset"></a>Preset</h2><p>為選項集合，用來設定編碼速度，相對的也會影響到壓縮比；編碼越快則壓縮比越低。<br>一速度遞減排序為：<code>ultrafast</code>、<code>superfast</code>、<code>veryfast</code>、<code>faster</code>、<code>fast</code>、<code>medium</code>（預設）、<code>slow</code>、<code>slower</code>、<code>veryslow</code>、<code>~~placebo~~</code></p>
+<h2 id="Preset"><a href="#Preset" class="headerlink" title="Preset"></a>Preset</h2><p>為選項集合，用來設定編碼速度，相對的也會影響到壓縮比；編碼越快則壓縮比越低。<br>一速度遞減排序為：<code>ultrafast</code>、<code>superfast</code>、<code>veryfast</code>、<code>faster</code>、<code>fast</code>、<code>medium</code>（預設）、<code>slow</code>、<code>slower</code>、<code>veryslow</code>、 <del>placebo</del></p>
 <h2 id="Tune-選項"><a href="#Tune-選項" class="headerlink" title="Tune 選項"></a>Tune 選項</h2><p>也是為一個集合選項，可針對特定的影片類型微調參數設定值，以獲得更好的品質或壓縮率</p>
 <ul>
 <li>Film：<code>film</code>，用於高解析度電影，降低 deblocking</li>
@@ -221,23 +221,172 @@ ga('send', 'pageview');
 <li>SSIM：<code>ssim</code>，優化 SSIM </li>
 </ul>
 <h2 id="Profile"><a href="#Profile" class="headerlink" title="Profile"></a>Profile</h2><p>複合選項，Profile 越好壓縮比也越高，但編碼複雜度相對提升；越好的 Profile 相對啟用的功能也越多，所以對播放硬體的需求也較高</p>
-<table><br>    <tr><br>        <th colspan="4"> Profiles </th><br>    </tr><br>    <tr><br>        <td></td><br>        <td> baseline </td><br>        <td> main </td><br>        <td> high </td><br>    </tr><br>    <tr><br>        <td>no-8x8dct</td><br>        <td>1</td><br>        <td>1</td><br>        <td></td><br>    </tr><br>    <tr><br>        <td> bframes </td><br>        <td>0</td><br>        <td></td><br>        <td></td><br>    </tr><br>    <tr><br>        <td>no-cabac</td><br>        <td>1</td><br>        <td></td><br>        <td></td><br>    </tr><br>    <tr><br>        <td> cqm </td><br>        <td>flat</td><br>        <td>flat</td><br>        <td></td><br>    </tr><br>    <tr><br>        <td> weightp </td><br>        <td>0</td><br>        <td></td><br>        <td></td><br>    </tr><br></table>
+<!--<table>
+    <tr>
+        <th colspan="4"> Profiles </th>
+    </tr>
+    <tr>
+        <td></td>
+        <td> baseline </td>
+        <td> main </td>
+        <td> high </td>
+    </tr>
+    <tr>
+        <td>no-8x8dct</td>
+        <td>1</td>
+        <td>1</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td> bframes </td>
+        <td>0</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>no-cabac</td>
+        <td>1</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td> cqm </td>
+        <td>flat</td>
+        <td>flat</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td> weightp </td>
+        <td>0</td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>-->
+<table><tr><th colspan="4"> Profiles </th></tr><tr><td></td><td> baseline </td><td> main </td><td> high </td></tr><tr><td>no-8x8dct</td><td>1</td><td>1</td><td></td></tr><tr><td> bframes </td><td>0</td><td></td><td></td></tr><tr><td>no-cabac</td><td>1</td><td></td><td></td></tr><tr><td> cqm </td><td>flat</td><td>flat</td><td></td></tr><tr><td> weightp </td><td>0</td><td></td><td></td></tr></table>
 
 
 <h2 id="Level"><a href="#Level" class="headerlink" title="Level"></a>Level</h2><p>複合選項，與解碼器的效能及容量對應，Level 越高需求越高</p>
-<table><br>    <tr><br>        <th colspan="6"> Level </th><br>    </tr><br>    <tr><br>        <td></td><br>        <td>MaxMBPS(MB/s)</td><br>        <td>MaxFS(MBs)</td><br>        <td>MaxDpbMbs(MBs)</td><br>        <td>MaxBR(kbit/s)(Baseline,Main Profiles)</td><br>        <td>Examples for high resolution@ highest frame rate</td><br>    </tr><br>    <tr><br>        <td>3.0</td><br>        <td>40,500</td><br>        <td>1,620</td><br>        <td>8,1000</td><br>        <td>10,000</td><br>        <td><br>            176×144@172<br>            352×240@120<br>            352×480@60<br>            720×480@30<br>            720×576@25<br>        </td><br>    </tr><br>    <tr><br>        <td>3.1</td><br>        <td>108,000</td><br>        <td>2,600</td><br>        <td>18,000</td><br>        <td>14,000</td><br>        <td><br>            352x288@172<br>            352x576@130<br>            640x480@90<br>            720×576@60<br>            1,280×720@30<br>        </td><br>    </tr><br>    <tr><br>        <td>4.0</td><br>        <td>245,760</td><br>        <td>8,192</td><br>        <td>32.768</td><br>        <td>20,000</td><br>        <td><br>            720x480@172<br>            720x576@150<br>            1,280×720@60<br>            2,048×1,024@30<br>        </td><br>    </tr><br>    <tr><br>        <td>4.1</td><br>        <td>245,760</td><br>        <td>8,192</td><br>        <td>32,768</td><br>        <td>50,000</td><br>        <td><br>            720x480@172<br>            720x576@150<br>            1,280×720@60<br>            2,048×1,024@30<br>        </td><br>    </tr><br>    <tr><br>        <td>4.2</td><br>        <td>522,240</td><br>        <td>8,704</td><br>        <td>34,816</td><br>        <td>50,000</td><br>        <td><br>            720x576@172<br>            1,280×720@140<br>            2,048×1,080@60<br>        </td><br>    </tr><br></table>
+<!--<table>
+    <tr>
+        <th colspan="6"> Level </th>
+    </tr>
+    <tr>
+        <td></td>
+        <td>MaxMBPS(MB/s)</td>
+        <td>MaxFS(MBs)</td>
+        <td>MaxDpbMbs(MBs)</td>
+        <td>MaxBR(kbit/s)(Baseline,Main Profiles)</td>
+        <td>Examples for high resolution@ highest frame rate</td>
+    </tr>
+    <tr>
+        <td>3.0</td>
+        <td>40,500</td>
+        <td>1,620</td>
+        <td>8,1000</td>
+        <td>10,000</td>
+        <td>
+            176×144@172
+            352×240@120
+            352×480@60
+            720×480@30
+            720×576@25
+        </td>
+    </tr>
+    <tr>
+        <td>3.1</td>
+        <td>108,000</td>
+        <td>2,600</td>
+        <td>18,000</td>
+        <td>14,000</td>
+        <td>
+            352x288@172
+            352x576@130
+            640x480@90
+            720×576@60
+            1,280×720@30
+        </td>
+    </tr>
+    <tr>
+        <td>4.0</td>
+        <td>245,760</td>
+        <td>8,192</td>
+        <td>32.768</td>
+        <td>20,000</td>
+        <td>
+            720x480@172
+            720x576@150
+            1,280×720@60
+            2,048×1,024@30
+        </td>
+    </tr>
+    <tr>
+        <td>4.1</td>
+        <td>245,760</td>
+        <td>8,192</td>
+        <td>32,768</td>
+        <td>50,000</td>
+        <td>
+            720x480@172
+            720x576@150
+            1,280×720@60
+            2,048×1,024@30
+        </td>
+    </tr>
+    <tr>
+        <td>4.2</td>
+        <td>522,240</td>
+        <td>8,704</td>
+        <td>34,816</td>
+        <td>50,000</td>
+        <td>
+            720x576@172
+            1,280×720@140
+            2,048×1,080@60
+        </td>
+    </tr>
+</table>
+-->
+<table><tr><th colspan="6"> Level </th></tr><tr><td></td><td>MaxMBPS(MB/s)</td><td>MaxFS(MBs)</td><td>MaxDpbMbs(MBs)</td><td>MaxBR(kbit/s)(Baseline,Main Profiles)</td><td>Examples for high resolution@ highest frame rate</td></tr><tr><td>3.0</td><td>40,500</td><td>1,620</td><td>8,1000</td><td>10,000</td><td><br>            176×144@172<br>            352×240@120<br>            352×480@60<br>            720×480@30<br>            720×576@25</td></tr><tr><td>3.1</td><td>108,000</td><td>2,600</td><td>18,000</td><td>14,000</td><td><br>            352x288@172<br>            352x576@130<br>            640x480@90<br>            720×576@60<br>            1,280×720@30</td></tr><tr><td>4.0</td><td>245,760</td><td>8,192</td><td>32.768</td><td>20,000</td><td><br>            720x480@172<br>            720x576@150<br>            1,280×720@60<br>            2,048×1,024@30<br>        </td></tr><tr><td>4.1</td><td>245,760</td><td>8,192</td><td>32,768</td><td>50,000</td><td><br>            720x480@172<br>            720x576@150<br>            1,280×720@60<br>            2,048×1,024@30</td></tr><tr><td>4.2</td><td>522,240</td><td>8,704</td><td>34,816</td><td>50,000</td><td><br>            720x576@172<br>            1,280×720@140<br>            2,048×1,080@60</td></tr></table>
 
 
 <h3 id="Decoded-picture-buffering"><a href="#Decoded-picture-buffering" class="headerlink" title="Decoded picture buffering"></a>Decoded picture buffering</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">capacity = min(floor(MaxDpbMbs / (PicWidthInMbs * FrameHeightInMbs)), 16)</div></pre></td></tr></table></figure>
-<table><br>    <tr><br>        <td>Level</td><br>        <td>3.0</td><br>        <td>3.1</td><br>        <td>4.0</td><br>        <td>4.1</td><br>        <td>4.2</td><br>    </tr><br>    <tr><br>        <td>MaxDpbMbs</td><br>        <td>8,100</td><br>        <td>18,000</td><br>        <td>32,768</td><br>        <td>32,768</td><br>        <td>34,816</td><br>    </tr><br></table>
-
+<!-- 因 Bug 顧先手動縮排
+<table>
+    <tr>
+        <td>Level</td>
+        <td>3.0</td>
+        <td>3.1</td>
+        <td>4.0</td>
+        <td>4.1</td>
+        <td>4.2</td>
+    </tr>
+    <tr>
+        <td>MaxDpbMbs</td>
+        <td>8,100</td>
+        <td>18,000</td>
+        <td>32,768</td>
+        <td>32,768</td>
+        <td>34,816</td>
+    </tr>
+</table>
+-->
+<table><tr><td>Level</td><td>3.0</td><td>3.1</td><td>4.0</td><td>4.1</td><td>4.2</td></tr><tr><td>MaxDpbMbs</td><td>8,100</td><td>18,000</td><td>32,768</td><td>32,768</td><td>34,816</td></tr></table>
 
 <h2 id="自定義"><a href="#自定義" class="headerlink" title="自定義"></a>自定義</h2><p>以上說的都是複合指令，若是有需求也可利用 -x264-params 做個別設定</p>
 <p>可參考：<br><a href="https://ffmpeg.org/ffmpeg-codecs.html#libx264_002c-libx264rgb" target="_blank" rel="external">https://ffmpeg.org/ffmpeg-codecs.html#libx264_002c-libx264rgb</a></p>
 <ul>
-<li><code>ref</code><br>控制 DPB（Decoded Picture Buffer） 大小，表示 P-frame 參照多少個 frame。預設值為 3，範圍：0 - 16。</li>
+<li><p><code>-I</code>, <code>keyint</code><br>設定 i-frame 間隔，也就是 GOP size</p>
+</li>
+<li><p><code>-i</code>, <code>--min-keyint</code><br>最小 GOP size</p>
+</li>
+<li><p><code>-r</code>, <code>--ref</code><br>控制 DPB（Decoded Picture Buffer） 大小，表示 P-frame 參照多少個 frame。預設值為 3，範圍：0 - 16。</p>
+</li>
+<li><p><code>--scenecut</code><br>配置動態 i-frame 的參考值；x264 的 frame 中會紀錄與參考 frame 的差異，當判斷差異過大時就是場景變更，此時就會插入一個 i-frame 來做紀錄，差異的依據可由設定 scenecut 來做判別，當設為 0 時等同 no-scenecut。</p>
+</li>
+<li><p><code>--no-scenecut</code><br>停用 adaptive I-frame decision</p>
+</li>
 </ul>
-<h2 id="參數優先順序"><a href="#參數優先順序" class="headerlink" title="參數優先順序"></a>參數優先順序</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">preset -&gt; tune -&gt; &quot;custom” -&gt; profile -&gt; level</div></pre></td></tr></table></figure>
+<h2 id="參數優先順序"><a href="#參數優先順序" class="headerlink" title="參數優先順序"></a>參數優先順序</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">preset -&gt; tune -&gt; &quot;custom&quot; -&gt; profile -&gt; level</div></pre></td></tr></table></figure>
 
       
 
@@ -457,31 +606,19 @@ ga('send', 'pageview');
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">mac</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">golang</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">EC2</a>
+                <a href="javascript:void(0)" class="js-tag color2">FFmpeg</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">LAMP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Apache</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">mac</a>
+                <a href="javascript:void(0)" class="js-tag color5">H264</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -557,6 +694,26 @@ ga('send', 'pageview');
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">EC2</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">LAMP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Apache</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">MacOSX</a>
               </li>
              
@@ -566,14 +723,6 @@ ga('send', 'pageview');
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">GCE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">FFmpeg</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">H264</a>
               </li>
             
             <div class="clearfix"></div>
