@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.dexiang.me/"/>
-  <updated>2017-11-28T16:33:15.816Z</updated>
+  <updated>2018-01-03T06:53:53.026Z</updated>
   <id>http://blog.dexiang.me/</id>
   
   <author>
@@ -17,16 +17,85 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>FFmpeg H.264 編碼器</title>
+    <link href="http://blog.dexiang.me/tech/FFmpeg-H264-Options/"/>
+    <id>http://blog.dexiang.me/tech/FFmpeg-H264-Options/</id>
+    <published>2017-12-23T15:44:58.000Z</published>
+    <updated>2018-01-03T06:53:53.026Z</updated>
+    
+    <summary type="html">
+    
+      &lt;img src=&quot;/tech/FFmpeg-H264-Options/h264.png&quot; alt=&quot;H264&quot; title=&quot;H264&quot;&gt;
+&lt;p&gt;H.264 / MPEG-4 AVC 是目前最被廣泛被應用的視訊編碼格式，它的壓縮效率比 MPEG-2、MPEG-4、RV40 …等舊視訊編碼格式還要高許多。&lt;/p&gt;
+&lt;p&gt;如果要輸出 H.264 / AVC 視訊編碼，則需要 &lt;code&gt;libx264&lt;/code&gt; 編碼器，FFmpeg 的組態設定之中必須有 &lt;code&gt;--enable-libx264&lt;/code&gt; 則才可以使用。&lt;/p&gt;
+&lt;p&gt;H.264 有多個版本，版本越高壓縮比就越高（對應到 profile）&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="tech" scheme="http://blog.dexiang.me/categories/tech/"/>
+    
+    
+      <category term="FFmpeg" scheme="http://blog.dexiang.me/tags/FFmpeg/"/>
+    
+      <category term="H264" scheme="http://blog.dexiang.me/tags/H264/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>FFmpeg 常用選項</title>
+    <link href="http://blog.dexiang.me/tech/FFmpeg-Common-Options/"/>
+    <id>http://blog.dexiang.me/tech/FFmpeg-Common-Options/</id>
+    <published>2017-12-22T09:04:38.000Z</published>
+    <updated>2017-12-29T06:18:35.464Z</updated>
+    
+    <summary type="html">
+    
+      &lt;img src=&quot;/tech/FFmpeg-Common-Options/transcoder.png&quot; alt=&quot;Transcoder&quot; title=&quot;Transcoder&quot;&gt;
+&lt;p&gt;接續著上次的簡介及流程介紹，這次就來聊聊常用到的選項（還偷渡了一點我會用到的 XDD）&lt;/p&gt;
+&lt;p&gt;一開始我們先來確認 FFmpeg 的版本 ＆ 內含 Library，這關係到我們能用的功能，好比說我想轉 H.264 的 Codec，那麼我就要先確認我有沒有 &lt;code&gt;libx264&lt;/code&gt; 這個函式庫&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$ ffmpeg -version&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="tech" scheme="http://blog.dexiang.me/categories/tech/"/>
+    
+    
+      <category term="FFmpeg" scheme="http://blog.dexiang.me/tags/FFmpeg/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>FFmpeg 多媒體框架</title>
+    <link href="http://blog.dexiang.me/tech/FFmpeg-introduction/"/>
+    <id>http://blog.dexiang.me/tech/FFmpeg-introduction/</id>
+    <published>2017-12-20T09:04:38.000Z</published>
+    <updated>2017-12-27T07:04:51.866Z</updated>
+    
+    <summary type="html">
+    
+      &lt;img src=&quot;/tech/FFmpeg-introduction/ffmpeg.png&quot; alt=&quot;FFmpeg&quot; title=&quot;FFmpeg&quot;&gt;
+&lt;p&gt;FFmpeg 為開源的影音處理框架，可幫助我們進行影音的格式轉換、分離、混合、過濾等等，&lt;a href=&quot;http://ffmpeg.org/general.html#Supported-File-Formats_002c-Codecs-or-Features&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;支援格式&lt;/a&gt; 也非常的廣泛，也可以在多個作業系統及硬體架構上運作。同時也支援多種函式庫，更增加使用上的彈性，依照需求建立出最適合的工具。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="tech" scheme="http://blog.dexiang.me/categories/tech/"/>
+    
+    
+      <category term="FFmpeg" scheme="http://blog.dexiang.me/tags/FFmpeg/"/>
+    
+  </entry>
+  
+  <entry>
     <title>OWASP Top 10 2017</title>
     <link href="http://blog.dexiang.me/tech/OWASP-2017/"/>
     <id>http://blog.dexiang.me/tech/OWASP-2017/</id>
     <published>2017-11-21T08:04:35.000Z</published>
-    <updated>2017-11-28T16:33:15.816Z</updated>
+    <updated>2017-11-29T01:30:13.117Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;這禮拜一去參加了 OWASP 2017 的研討會，其中提到了新發佈的 OWASP Top 10 2017版；先回頭來談一下什麼是 OWASP，在開發系統時，除了功能以外，安全也是必須要著重且注意的，在快速開發的過程中，常常會沒有兼顧到安全這塊；對於部分各戶來說，在還未出包之前大概也不會感覺到資安的重要；OWASP 就統整了十大弱點排名（當然啦～不是只有這十個需要重視）， 最近的一次正式更新是在 2013 年，在這過程中資訊的進步很快，排名也略有變動。&lt;/p&gt;
-&lt;img src=&quot;/tech/OWASP-2017/OWASP_Top_10_2013_with_2017.png&quot; alt=&quot;OWASP Top 10&quot; title=&quot;OWASP Top 10&quot;&gt;
+&lt;img src=&quot;/tech/OWASP-2017/OWASP_Top_10_2013_with_2017_800x446.png&quot; alt=&quot;OWASP Top 10&quot; title=&quot;OWASP Top 10&quot;&gt;
 &lt;p&gt;在研討會中也提到了最新的 OWASP Top 10 2017，與 2013 年比較第一名依舊是 Injection，第二名是身份驗證；然而新版的因考慮了現在的系統採用了許多的 API 讓前後端分離，也搜集了實際企業的 Log 數據，可以從排名中看出都跟最近流行的微服務有關。&lt;/p&gt;
     
     </summary>
@@ -443,40 +512,6 @@
 &lt;h2 id=&quot;Apache-設定&quot;&gt;&lt;a href=&quot;#Apache-設定&quot; class=&quot;headerlink&quot; title=&quot;Apache 設定&quot;&gt;&lt;/a&gt;Apache 設定&lt;/h2&gt;&lt;p&gt;若是有需要在一台機器上設定多個網站，那麼就用 virtualhost 吧&lt;/p&gt;
 &lt;h3 id=&quot;virtualhost&quot;&gt;&lt;a href=&quot;#virtualhost&quot; class=&quot;headerlink&quot; title=&quot;virtualhost&quot;&gt;&lt;/a&gt;virtualhost&lt;/h3&gt;&lt;p&gt;建立預存放目錄&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;# XXX 表示專案名稱&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$ mkdir /var/www/workspace/XXX&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="tech" scheme="http://blog.dexiang.me/categories/tech/"/>
-    
-    
-      <category term="AWS" scheme="http://blog.dexiang.me/tags/AWS/"/>
-    
-      <category term="EC2" scheme="http://blog.dexiang.me/tags/EC2/"/>
-    
-      <category term="LAMP" scheme="http://blog.dexiang.me/tags/LAMP/"/>
-    
-      <category term="Apache" scheme="http://blog.dexiang.me/tags/Apache/"/>
-    
-      <category term="PHP" scheme="http://blog.dexiang.me/tags/PHP/"/>
-    
-      <category term="MySQL" scheme="http://blog.dexiang.me/tags/MySQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>AWS EC2 LAMP (1)</title>
-    <link href="http://blog.dexiang.me/tech/AWS-EC2-LAMP-1/"/>
-    <id>http://blog.dexiang.me/tech/AWS-EC2-LAMP-1/</id>
-    <published>2016-10-16T16:33:06.000Z</published>
-    <updated>2017-10-15T12:41:32.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;使用 Linux 架設 web server，LAMP 是非常常用的選擇，LAMP 代表 Linux + Apache + MySQL + PHP，當然還有很多的組合，像是 LNMP (Linux + Nginx + MySQL + PHP) 等等的搭配，但這篇就先針對 LAMP 做介紹。&lt;/p&gt;
-&lt;p&gt;首先這篇採用 EC2 主機搭配作介紹，皆用 yum 安裝。&lt;/p&gt;
-&lt;p&gt;在安裝過程中因權限的關係，以下皆是以 root 的身分。&lt;/p&gt;
-&lt;h2 id=&quot;安裝-LAMP&quot;&gt;&lt;a href=&quot;#安裝-LAMP&quot; class=&quot;headerlink&quot; title=&quot;安裝 LAMP&quot;&gt;&lt;/a&gt;安裝 LAMP&lt;/h2&gt;&lt;h3 id=&quot;yum&quot;&gt;&lt;a href=&quot;#yum&quot; class=&quot;headerlink&quot; title=&quot;yum&quot;&gt;&lt;/a&gt;yum&lt;/h3&gt;&lt;p&gt;查詢是否有安裝yum&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$ rpm -qa | grep yum&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     

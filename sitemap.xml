@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.dexiang.me/tech/FFmpeg-H264-Options/</loc>
+    
+    <lastmod>2018-01-03T06:53:53.026Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.dexiang.me/tech/FFmpeg-Common-Options/</loc>
+    
+    <lastmod>2017-12-29T06:18:35.464Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.dexiang.me/tech/FFmpeg-introduction/</loc>
+    
+    <lastmod>2017-12-27T07:04:51.866Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.dexiang.me/tech/OWASP-2017/</loc>
     
-    <lastmod>2017-11-28T16:33:15.816Z</lastmod>
+    <lastmod>2017-11-29T01:30:13.117Z</lastmod>
     
   </url>
   
