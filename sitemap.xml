@@ -2,23 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://blog.dexiang.me/tech/FFmpeg-H264-Options/</loc>
+    <loc>http://blog.dexiang.me/tech/go-introduction/</loc>
     
-    <lastmod>2018-01-03T08:23:20.928Z</lastmod>
+    <lastmod>2018-01-30T07:49:17.108Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.dexiang.me/tech/Media-basic-concept/</loc>
+    
+    <lastmod>2018-01-09T04:03:26.551Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://blog.dexiang.me/tech/FFmpeg-Common-Options/</loc>
     
-    <lastmod>2017-12-29T06:18:35.464Z</lastmod>
+    <lastmod>2018-01-08T10:10:01.990Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://blog.dexiang.me/tech/FFmpeg-introduction/</loc>
     
-    <lastmod>2017-12-27T07:04:51.866Z</lastmod>
+    <lastmod>2018-01-08T10:08:09.067Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.dexiang.me/tech/FFmpeg-H264-Options/</loc>
+    
+    <lastmod>2018-01-03T08:23:20.928Z</lastmod>
     
   </url>
   

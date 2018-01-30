@@ -17,7 +17,7 @@
 <meta property="og:description" content="FFmpeg 為開源的影音處理框架，可幫助我們進行影音的格式轉換、分離、混合、過濾等等，支援格式 也非常的廣泛，也可以在多個作業系統及硬體架構上運作。同時也支援多種函式庫，更增加使用上的彈性，依照需求建立出最適合的工具。">
 <meta property="og:locale" content="zh-TW">
 <meta property="og:image" content="http://blog.dexiang.me/tech/FFmpeg-introduction/ffmpeg.png">
-<meta property="og:updated_time" content="2017-12-27T07:04:51.866Z">
+<meta property="og:updated_time" content="2018-01-08T10:08:09.067Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="FFmpeg 多媒體框架">
 <meta name="twitter:description" content="FFmpeg 為開源的影音處理框架，可幫助我們進行影音的格式轉換、分離、混合、過濾等等，支援格式 也非常的廣泛，也可以在多個作業系統及硬體架構上運作。同時也支援多種函式庫，更增加使用上的彈性，依照需求建立出最適合的工具。">
@@ -213,7 +213,7 @@ ga('send', 'pageview');
 <li>libswscale：用極佳的方式縮放影像，也可以用來轉換色彩空間</li>
 <li>libswresample：用極佳的方式處理音訊取樣</li>
 </ul>
-<p>還可以支援其他的第三方函式庫，如：libx264、libvpx、libfdk_aac；依照這些函式庫 FFmpeg 提供了許多的工具：</p>
+<p>還可以支援其他的第三方函式庫，如：<code>libx264</code>、<code>libvpx</code>、<code>libfdk_aac</code>；依照這些函式庫 FFmpeg 提供了許多的工具：</p>
 <ul>
 <li>ffmpeg：Command line tool，用來轉換不同格式的多媒體檔案</li>
 <li>ffserver：用於線上廣播的多媒體串流伺服器</li>
@@ -223,18 +223,19 @@ ga('send', 'pageview');
 <h2 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h2><p>安裝的部分就略過了，官方提供的方式非常多元，可參照官網上的敘述：<a href="https://www.ffmpeg.org/" target="_blank" rel="external">https://www.ffmpeg.org/</a>，我個人因為用的是 Mac，採用的是 Homebrew 安裝管理</p>
 <p>再來就是重頭戲了～～～<br>因為 FFmpeg 的功能非常強大，也涉及一些影音的知識，我這裡就先就操作和流程去說，其他的再慢慢補完：</p>
 <h2 id="語法結構"><a href="#語法結構" class="headerlink" title="語法結構"></a>語法結構</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ffmpeg [全域選項] &#123;[輸入選項] -i 輸入檔案路徑&#125; ... &#123;[輸出選項] 輸出檔案路徑&#125; ...</div></pre></td></tr></table></figure>
+<p>支持多個輸入和輸出，所以 <code>...</code> 代表可傳入多個的意思</p>
 <h2 id="運作流程"><a href="#運作流程" class="headerlink" title="運作流程"></a>運作流程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"> _______              ______________</div><div class="line">|       |            |              |</div><div class="line">| input |  demuxer   | encoded data |   decoder</div><div class="line">| file  | ---------&gt; | packets      | -----+</div><div class="line">|_______|            |______________|      |</div><div class="line">                                           v</div><div class="line">                                       _________</div><div class="line">                                      |         |</div><div class="line">                                      | decoded |</div><div class="line">                                      | frames  |</div><div class="line">                                      |_________|</div><div class="line"> ________             ______________       |</div><div class="line">|        |           |              |      |</div><div class="line">| output | &lt;-------- | encoded data | &lt;----+</div><div class="line">| file   |   muxer   | packets      |   encoder</div><div class="line">|________|           |______________|</div></pre></td></tr></table></figure>
 <p>用 <code>libavformat</code> 來分離輸入的檔案，再利用 decoder 去解出非壓縮的內容，再透過 filter 過濾，經過壓縮後再混合成新的檔案。</p>
 <p>上述的圖再編碼之前還可以進一步被 filter 處理（使用 <code>libavfilter</code> 函式庫），而 filter 可組成 filtergraphs，filtergraphs 在依照輸入及輸出可分成 Simple filtergraphs &amp; Complex filtergraphs。</p>
 <h3 id="Simple-filtergraphs"><a href="#Simple-filtergraphs" class="headerlink" title="Simple filtergraphs"></a>Simple filtergraphs</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"> _________                        ______________</div><div class="line">|         |                      |              |</div><div class="line">| decoded |                      | encoded data |</div><div class="line">| frames  |\                   _ | packets      |</div><div class="line">|_________| \                  /||______________|</div><div class="line">             \   __________   /</div><div class="line">  simple     _\||          | /  encoder</div><div class="line">  filtergraph   | filtered |/</div><div class="line">                | frames   |</div><div class="line">                |__________|</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"> _________                 __________               ______________</div><div class="line">|         |               |          |             |              |</div><div class="line">| decoded | ----------&gt;   | filtered | ----------&gt; | encoded data |</div><div class="line">| frames  |    simple     | frames   |    encoder  | packets      |</div><div class="line">|_________|  filtergraph  |__________|             |______________|</div></pre></td></tr></table></figure>
 <p>Simple filtergraphs 透過 <code>-filter</code> 來做設定，以下是一個 Simple filtergraphs 的範例：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"> _______        _____________        _______        ________</div><div class="line">|       |      |             |      |       |      |        |</div><div class="line">| input | ---&gt; | deinterlace | ---&gt; | scale | ---&gt; | output |</div><div class="line">|_______|      |_____________|      |_______|      |________|</div></pre></td></tr></table></figure>
-<h3 id="Complex-filtergraphs"><a href="#Complex-filtergraphs" class="headerlink" title="Complex filtergraphs"></a>Complex filtergraphs</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"> _________</div><div class="line">|         |</div><div class="line">| input 0 |\                    __________</div><div class="line">|_________| \                  |          |</div><div class="line">             \   _________    /| output 0 |</div><div class="line">              \ |         |  / |__________|</div><div class="line"> _________     \| complex | /</div><div class="line">|         |     |         |/</div><div class="line">| input 1 |----&gt;| filter  |\</div><div class="line">|_________|     |         | \   __________</div><div class="line">               /| graph   |  \ |          |</div><div class="line">              / |         |   \| output 1 |</div><div class="line"> _________   /  |_________|    |__________|</div><div class="line">|         | /</div><div class="line">| input 2 |/</div><div class="line">|_________|</div></pre></td></tr></table></figure>
+<h3 id="Complex-filtergraphs"><a href="#Complex-filtergraphs" class="headerlink" title="Complex filtergraphs"></a>Complex filtergraphs</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"> _________</div><div class="line">|         |</div><div class="line">| input 0 |\                     __________</div><div class="line">|_________| \                   |          |</div><div class="line">             \    _________    /| output 0 |</div><div class="line">              \  |         |  / |__________|</div><div class="line"> _________    _\|| complex | /</div><div class="line">|         |      |         |/</div><div class="line">| input 1 |----&gt; | filter  |\</div><div class="line">|_________|   _  |         | \   __________</div><div class="line">               /|| graph   |  \ |          |</div><div class="line">              /  |         |   \| output 1 |</div><div class="line"> _________   /   |_________|    |__________|</div><div class="line">|         | /</div><div class="line">| input 2 |/</div><div class="line">|_________|</div></pre></td></tr></table></figure>
 <p>Complex filtergraphs 透過 <code>-filter_complex</code> 這個全域選項來做設定</p>
 <h3 id="Stream-Copy"><a href="#Stream-Copy" class="headerlink" title="Stream Copy"></a>Stream Copy</h3><p>再來我們聊聊 Stream copy，有時候我們並無意改變 Codec，只想改變 video 的 container，那麼我們可以用 <code>-code copy</code> 來做設定，但同時也意味著沒有經過解碼及編碼階段，也不會有 filter 的處理。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"> _______              ______________            ________</div><div class="line">|       |            |              |          |        |</div><div class="line">| input |  demuxer   | encoded data |  muxer   | output |</div><div class="line">| file  | ---------&gt; | packets      | -------&gt; | file   |</div><div class="line">|_______|            |______________|          |________|</div></pre></td></tr></table></figure>
 <h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://www.ffmpeg.org/ffmpeg.html" target="_blank" rel="external">ffmpeg Documentation</a></p>
-<p><a href="https://magiclen.org/ffmpeg/" target="_blank" rel="external">FFmpeg 免費開源、功能強大的影音處理框架 - Magic Len</a></p>
 <p><a href="https://www.mobile01.com/topicdetail.php?f=510&amp;t=3734550" target="_blank" rel="external">FFmpeg - 泛用影音轉換工具 - Mobile01</a></p>
 
       
@@ -468,6 +469,26 @@ ga('send', 'pageview');
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">EC2</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">LAMP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Apache</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">FFmpeg</a>
               </li>
              
@@ -485,6 +506,10 @@ ga('send', 'pageview');
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">MarkDown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">streaming</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -524,6 +549,10 @@ ga('send', 'pageview');
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">go</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CDN</a>
               </li>
              
@@ -545,26 +574,6 @@ ga('send', 'pageview');
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">draft</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">EC2</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">LAMP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Apache</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">

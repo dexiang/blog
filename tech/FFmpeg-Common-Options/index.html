@@ -17,7 +17,7 @@
 <meta property="og:description" content="接續著上次的簡介及流程介紹，這次就來聊聊常用到的選項（還偷渡了一點我會用到的 XDD） 一開始我們先來確認 FFmpeg 的版本 ＆ 內含 Library，這關係到我們能用的功能，好比說我想轉 H.264 的 Codec，那麼我就要先確認我有沒有 libx264 這個函式庫 1$ ffmpeg -version">
 <meta property="og:locale" content="zh-TW">
 <meta property="og:image" content="http://blog.dexiang.me/tech/FFmpeg-Common-Options/transcoder.png">
-<meta property="og:updated_time" content="2017-12-29T06:18:35.464Z">
+<meta property="og:updated_time" content="2018-01-08T10:10:01.990Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="FFmpeg 常用選項">
 <meta name="twitter:description" content="接續著上次的簡介及流程介紹，這次就來聊聊常用到的選項（還偷渡了一點我會用到的 XDD） 一開始我們先來確認 FFmpeg 的版本 ＆ 內含 Library，這關係到我們能用的功能，好比說我想轉 H.264 的 Codec，那麼我就要先確認我有沒有 libx264 這個函式庫 1$ ffmpeg -version">
@@ -213,21 +213,15 @@ ga('send', 'pageview');
 </blockquote>
 <h2 id="選擇串流"><a href="#選擇串流" class="headerlink" title="選擇串流"></a>選擇串流</h2><p>在上次提到在一檔案進到 FFmpeg 後會先透過 demuxer 讀出各個串流，有可能是 Video 或 Audio，更甚至於是字幕，所以在設定輸入及輸出的時候也要給予相對應的設定；可以透過 <code>-map</code> 來指定串流，又或者是利用 <code>-vn</code> / <code>-an</code> / <code>-sn</code> 來做選擇。</p>
 <ul>
-<li>-map [輸入檔案索引][:串流識別符]   </li>
+<li><p>-map [輸入檔案索引][:串流識別符]<br>挑選輸入串流</p>
+</li>
+<li><p>-vn<br>禁用影像輸出</p>
+</li>
+<li><p>-an<br>禁用音訊輸出</p>
+</li>
+<li><p>-sn<br>禁用字幕輸出</p>
+</li>
 </ul>
-<p>挑選輸入串流</p>
-<ul>
-<li>-vn   </li>
-</ul>
-<p>禁用影像輸出</p>
-<ul>
-<li>-an   </li>
-</ul>
-<p>禁用音訊輸出</p>
-<ul>
-<li>-sn   </li>
-</ul>
-<p>禁用字幕輸出</p>
 <p>另外在某些選項上也可以針對串流去做設定，語法結構為：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">-選項[:串流類別][:串流索引] [設定值]</div><div class="line">     ------------------</div><div class="line">             /|\</div><div class="line">              |</div><div class="line">           串流識別符</div><div class="line"></div><div class="line"># 串流類別有 v, a, s, d, t，分別代表了：視訊（Video）、音訊（Audio）、字幕（Subtitle）、資料（Data）、附件（Attachment）</div><div class="line"># 串流索引是從 0 起算</div></pre></td></tr></table></figure>
 <p>例如：<br><code>-codec:a:1 aac</code>，表示將第二個音頻轉成 AAC 格式<br><code>-codec:a libfdk_aac</code>，表示所有音訊用 libfdk_aac 編碼</p>
@@ -537,6 +531,26 @@ ga('send', 'pageview');
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">EC2</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">LAMP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Apache</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">FFmpeg</a>
               </li>
              
@@ -554,6 +568,10 @@ ga('send', 'pageview');
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">MarkDown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">streaming</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -593,6 +611,10 @@ ga('send', 'pageview');
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">go</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CDN</a>
               </li>
              
@@ -614,26 +636,6 @@ ga('send', 'pageview');
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">draft</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">EC2</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">LAMP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Apache</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
