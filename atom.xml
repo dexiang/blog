@@ -18,14 +18,14 @@
   
   <entry>
     <title>HTTP Caching</title>
-    <link href="http://blog.dexiang.me/tech/HTTP%20Caching/"/>
-    <id>http://blog.dexiang.me/tech/HTTP Caching/</id>
+    <link href="http://blog.dexiang.me/tech/HTTP-Caching/"/>
+    <id>http://blog.dexiang.me/tech/HTTP-Caching/</id>
     <published>2018-02-01T07:02:39.000Z</published>
     <updated>2018-02-02T11:02:07.460Z</updated>
     
     <summary type="html">
     
-      &lt;img src=&quot;/tech/HTTP%20Caching/Web-browsers-Chrome-Firefox-Safari-Edge-Opera_640x241.png&quot; alt=&quot;Browsers&quot; title=&quot;Browsers&quot;&gt;
+      &lt;img src=&quot;/tech/HTTP-Caching/Web-browsers-Chrome-Firefox-Safari-Edge-Opera_640x241.png&quot; alt=&quot;Browsers&quot; title=&quot;Browsers&quot;&gt;
 &lt;p&gt;近年來 Web 的服務越來越多樣化，其中不乏較大流量的服務，不僅增加傳輸的成本，也會拖慢 Browser 處理的時間，因此需要重複的利用之前所緩存的資源。&lt;/p&gt;
 &lt;h2 id=&quot;Caching-機制&quot;&gt;&lt;a href=&quot;#Caching-機制&quot; class=&quot;headerlink&quot; title=&quot;Caching 機制&quot;&gt;&lt;/a&gt;Caching 機制&lt;/h2&gt;&lt;p&gt;那就讓我們來看看 Caching 的機制是什麼&lt;/p&gt;
 &lt;p&gt;在規範（&lt;a href=&quot;https://tools.ietf.org/html/rfc7234&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://tools.ietf.org/html/rfc7234&lt;/a&gt;）中將其分為 4.2. Freshness 和 4.3. Validation &lt;/p&gt;
