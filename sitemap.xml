@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.dexiang.me/tech/HTTP%20Caching/</loc>
+    
+    <lastmod>2018-02-02T11:02:07.460Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.dexiang.me/tech/go-introduction/</loc>
     
     <lastmod>2018-01-30T07:49:17.108Z</lastmod>
