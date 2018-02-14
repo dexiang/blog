@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.dexiang.me/tech/File-Locking/</loc>
+    
+    <lastmod>2018-02-14T10:00:55.776Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.dexiang.me/tech/HTTP-Caching/</loc>
     
-    <lastmod>2018-02-02T11:02:07.460Z</lastmod>
+    <lastmod>2018-02-05T02:03:44.919Z</lastmod>
     
   </url>
   

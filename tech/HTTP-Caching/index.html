@@ -9,7 +9,7 @@
   <title>HTTP Caching | Tony 字傳</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="近年來 Web 的服務越來越多樣化，其中不乏較大流量的服務，不僅增加傳輸的成本，也會拖慢 Browser 處理的時間，因此需要重複的利用之前所緩存的資源。 Caching 機制那就讓我們來看看 Caching 的機制是什麼 在規範（https://tools.ietf.org/html/rfc7234）中將其分為 4.2. Freshness 和 4.3. Validation">
-<meta name="keywords" content="HTTP,Cache,ETage">
+<meta name="keywords" content="HTTP,Cache,ETage,Cache-Control">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HTTP Caching">
 <meta property="og:url" content="http://blog.dexiang.me/tech/HTTP-Caching/index.html">
@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://blog.dexiang.me/tech/HTTP-Caching/Web-browsers-Chrome-Firefox-Safari-Edge-Opera_640x241.png">
 <meta property="og:image" content="http://blog.dexiang.me/tech/HTTP-Caching/http-cache-control.png">
 <meta property="og:image" content="http://blog.dexiang.me/tech/HTTP-Caching/http-cache-hierarchy.png">
-<meta property="og:updated_time" content="2018-02-02T11:02:07.460Z">
+<meta property="og:updated_time" content="2018-02-05T02:03:44.919Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTTP Caching">
 <meta name="twitter:description" content="近年來 Web 的服務越來越多樣化，其中不乏較大流量的服務，不僅增加傳輸的成本，也會拖慢 Browser 處理的時間，因此需要重複的利用之前所緩存的資源。 Caching 機制那就讓我們來看看 Caching 的機制是什麼 在規範（https://tools.ietf.org/html/rfc7234）中將其分為 4.2. Freshness 和 4.3. Validation">
@@ -247,7 +247,7 @@ ga('send', 'pageview');
 <img src="/tech/HTTP-Caching/http-cache-hierarchy.png" alt="cache hierarchy" title="cache hierarchy">
 <p>我們藉由給予每個不同的資源不同的快取策略，定義 “快取階層”，如此一來，同時達成用戶端快取和快速更新。</p>
 <ul>
-<li>HTML 標記為 no-cache，這表示瀏覽器在每次請求時都會重新驗證文件，如果內容變更，就會拿到最新版本。同時，在 HTML 標記中，我們在 CSS 和 JavaScript 資源的網址中嵌入指紋碼：如果這些檔案的內容變更，網頁的 HTML 也會隨之變更，並將下載 HTML 回應的新副本。</li>
+<li>HTML 標記為 <code>no-cache</code>，這表示瀏覽器在每次請求時都會重新驗證文件，如果內容變更，就會拿到最新版本。同時，在 HTML 標記中，我們在 CSS 和 JavaScript 資源的網址中嵌入指紋碼：如果這些檔案的內容變更，網頁的 HTML 也會隨之變更，並將下載 HTML 回應的新副本。</li>
 <li>允許瀏覽器和中繼快取 (例如 CDN) 快取 CSS，期限設定為 1 年。請注意，我們可以放心使用 1 年的「遠期期限」，因為我們在檔案名稱中嵌入了檔案指紋碼：如果 CSS 更新，網址也會隨之變更。</li>
 <li>JavaScript 期限也設定為 1 年，但是被標記為「private」，也許是因為其中包含了不適合 CDN 快取的使用者私人資料。</li>
 <li>快取圖片時不包含版本或唯一指紋碼，期限設定為 1 天。</li>
@@ -278,6 +278,10 @@ ga('send', 'pageview');
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">ETage</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Cache-Control</a>
         		</li>
       		
 		</ul>
@@ -349,6 +353,15 @@ ga('send', 'pageview');
 
   
 <nav id="article-nav">
+  
+    <a href="/tech/File-Locking/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          File Locking
+        
+      </div>
+    </a>
   
   
     <a href="/tech/go-introduction/" id="article-nav-older" class="article-nav-link-wrap">
@@ -579,6 +592,10 @@ ga('send', 'pageview');
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">go</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CDN</a>
               </li>
              
@@ -592,10 +609,6 @@ ga('send', 'pageview');
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">CloudFlare</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">go</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -616,6 +629,34 @@ ga('send', 'pageview');
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">GCE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Golang</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">lock</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">flock</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">fcntl</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">EFS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Cache-Control</a>
               </li>
             
             <div class="clearfix"></div>
