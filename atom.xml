@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.dexiang.me/"/>
-  <updated>2018-02-14T10:00:55.776Z</updated>
+  <updated>2018-04-25T10:54:43.294Z</updated>
   <id>http://blog.dexiang.me/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GPS 簡介</title>
+    <link href="http://blog.dexiang.me/tech/GPS-introduction/"/>
+    <id>http://blog.dexiang.me/tech/GPS-introduction/</id>
+    <published>2018-04-23T05:07:35.000Z</published>
+    <updated>2018-04-25T10:54:43.294Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;GPS 英文全名是：Global Positioning System，全球定位系統&lt;/p&gt;
+&lt;p&gt;一般來說要表示地理位置都會用座標來標示，實際上用座標是不夠清楚的，因為所指的座標是用什麼基準的並沒有說明。明確的地理位置會用大地基準（Datum）＋坐標格式（Format／Grid）兩個參數來標示。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="tech" scheme="http://blog.dexiang.me/categories/tech/"/>
+    
+    
+      <category term="GPS" scheme="http://blog.dexiang.me/tags/GPS/"/>
+    
+      <category term="Datum" scheme="http://blog.dexiang.me/tags/Datum/"/>
+    
+      <category term="TWD67" scheme="http://blog.dexiang.me/tags/TWD67/"/>
+    
+      <category term="TWD97" scheme="http://blog.dexiang.me/tags/TWD97/"/>
+    
+      <category term="WGS84" scheme="http://blog.dexiang.me/tags/WGS84/"/>
+    
+      <category term="Haversine" scheme="http://blog.dexiang.me/tags/Haversine/"/>
+    
+      <category term="Vincenty" scheme="http://blog.dexiang.me/tags/Vincenty/"/>
+    
+  </entry>
   
   <entry>
     <title>File Locking</title>
@@ -75,9 +108,9 @@
     
       <category term="Cache" scheme="http://blog.dexiang.me/tags/Cache/"/>
     
-      <category term="ETage" scheme="http://blog.dexiang.me/tags/ETage/"/>
-    
       <category term="Cache-Control" scheme="http://blog.dexiang.me/tags/Cache-Control/"/>
+    
+      <category term="ETage" scheme="http://blog.dexiang.me/tags/ETage/"/>
     
   </entry>
   
@@ -508,28 +541,6 @@
 &lt;h2 id=&quot;建立-amp-初始化&quot;&gt;&lt;a href=&quot;#建立-amp-初始化&quot; class=&quot;headerlink&quot; title=&quot;建立 &amp;amp; 初始化&quot;&gt;&lt;/a&gt;建立 &amp;amp; 初始化&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$ hexo init &amp;lt;folder&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$ cd &amp;lt;folder&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$ npm install&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;建立後會有以下資料夾 &amp;amp; 檔案&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;.&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;├── _config.yml # 網站設定檔&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;├── package.json&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;├── scaffolds # 鷹架資料夾&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;├── scripts # 腳本資料夾&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;├── source&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;|   ├── _drafts&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;|   └── _posts&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;└── themes # 主題&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="tech" scheme="http://blog.dexiang.me/categories/tech/"/>
-    
-    
-      <category term="hexo" scheme="http://blog.dexiang.me/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo 簡介</title>
-    <link href="http://blog.dexiang.me/tech/hexo-introduction/"/>
-    <id>http://blog.dexiang.me/tech/hexo-introduction/</id>
-    <published>2017-01-18T11:08:43.000Z</published>
-    <updated>2017-10-15T12:43:42.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;img src=&quot;/tech/hexo-introduction/hexo-github3.png&quot; alt=&quot;Hexo + Github&quot; title=&quot;Hexo + Github&quot;&gt;
-&lt;p&gt;幾年前因為想寫一些文章而用 wordpress 架設了一網站，但覺得要管理維護太麻煩，後來就改到 Blogger，雖然它的功能很方便，與 google 的產品結合 (GA)，且有 SEO 的優勢，但一方面是想要有更高的控制權，另一方面是想換一個工具試試看。&lt;/p&gt;
-&lt;h2 id=&quot;什麼是-Hexo&quot;&gt;&lt;a href=&quot;#什麼是-Hexo&quot; class=&quot;headerlink&quot; title=&quot;什麼是 Hexo&quot;&gt;&lt;/a&gt;什麼是 Hexo&lt;/h2&gt;&lt;p&gt;Hexo 是一個基於 &lt;code&gt;Node.js&lt;/code&gt; 的部落格框架，可透過 Hexo 快速產生一個部落格，只需要幾行指令就可以搞定。安裝環境也是。支援 MarkDown 語法且兼容&lt;/p&gt;
     
     </summary>
     
