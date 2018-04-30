@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.dexiang.me/"/>
-  <updated>2018-04-25T11:08:16.407Z</updated>
+  <updated>2018-04-30T10:40:41.803Z</updated>
   <id>http://blog.dexiang.me/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Golang JSON 處理</title>
+    <link href="http://blog.dexiang.me/tech/golang-json/"/>
+    <id>http://blog.dexiang.me/tech/golang-json/</id>
+    <published>2018-04-30T09:32:35.000Z</published>
+    <updated>2018-04-30T10:40:41.803Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;JSON（JavaScript Object Notation）是一種輕量級的資料交換語言，以純文字為基礎去儲存資料，有相容性高、易於理解且許多程式語言都支援等優點。&lt;/p&gt;
+&lt;p&gt;而在 Golang 之中是如何處理 JSON 的呢？&lt;/p&gt;
+&lt;img src=&quot;/tech/golang-json/go-json.png&quot; alt=&quot;Go JSON&quot; title=&quot;Go JSON&quot;&gt;
+&lt;p&gt;Golang 官方的 &lt;a href=&quot;https://golang.org/pkg/encoding/json/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;package&lt;/a&gt; 中已有支援 JSON，可很容易的對 JSON 數據做編解碼&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="tech" scheme="http://blog.dexiang.me/categories/tech/"/>
+    
+    
+      <category term="golang" scheme="http://blog.dexiang.me/tags/golang/"/>
+    
+      <category term="Go" scheme="http://blog.dexiang.me/tags/Go/"/>
+    
+      <category term="json" scheme="http://blog.dexiang.me/tags/json/"/>
+    
+  </entry>
   
   <entry>
     <title>GPS 簡介</title>
@@ -524,30 +551,6 @@
       <category term="hexo" scheme="http://blog.dexiang.me/tags/hexo/"/>
     
       <category term="draft" scheme="http://blog.dexiang.me/tags/draft/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo 指南</title>
-    <link href="http://blog.dexiang.me/tech/hexo-guide/"/>
-    <id>http://blog.dexiang.me/tech/hexo-guide/</id>
-    <published>2017-01-20T07:08:26.000Z</published>
-    <updated>2017-10-15T12:43:34.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;其實目前官網的文件非常詳細，這裡就不多做介紹了。&lt;/p&gt;
-&lt;h2 id=&quot;安裝-Hexo&quot;&gt;&lt;a href=&quot;#安裝-Hexo&quot; class=&quot;headerlink&quot; title=&quot;安裝 Hexo&quot;&gt;&lt;/a&gt;安裝 Hexo&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$ npm install hexo-cli -g&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;建立-amp-初始化&quot;&gt;&lt;a href=&quot;#建立-amp-初始化&quot; class=&quot;headerlink&quot; title=&quot;建立 &amp;amp; 初始化&quot;&gt;&lt;/a&gt;建立 &amp;amp; 初始化&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$ hexo init &amp;lt;folder&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$ cd &amp;lt;folder&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$ npm install&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;建立後會有以下資料夾 &amp;amp; 檔案&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;.&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;├── _config.yml # 網站設定檔&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;├── package.json&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;├── scaffolds # 鷹架資料夾&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;├── scripts # 腳本資料夾&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;├── source&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;|   ├── _drafts&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;|   └── _posts&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;└── themes # 主題&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="tech" scheme="http://blog.dexiang.me/categories/tech/"/>
-    
-    
-      <category term="hexo" scheme="http://blog.dexiang.me/tags/hexo/"/>
     
   </entry>
   
