@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.dexiang.me/"/>
-  <updated>2018-04-30T10:40:41.803Z</updated>
+  <updated>2018-05-02T03:45:07.421Z</updated>
   <id>http://blog.dexiang.me/</id>
   
   <author>
@@ -21,14 +21,14 @@
     <link href="http://blog.dexiang.me/tech/golang-json/"/>
     <id>http://blog.dexiang.me/tech/golang-json/</id>
     <published>2018-04-30T09:32:35.000Z</published>
-    <updated>2018-04-30T10:40:41.803Z</updated>
+    <updated>2018-05-02T03:45:07.421Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;JSON（JavaScript Object Notation）是一種輕量級的資料交換語言，以純文字為基礎去儲存資料，有相容性高、易於理解且許多程式語言都支援等優點。&lt;/p&gt;
 &lt;p&gt;而在 Golang 之中是如何處理 JSON 的呢？&lt;/p&gt;
-&lt;img src=&quot;/tech/golang-json/go-json.png&quot; alt=&quot;Go JSON&quot; title=&quot;Go JSON&quot;&gt;
-&lt;p&gt;Golang 官方的 &lt;a href=&quot;https://golang.org/pkg/encoding/json/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;package&lt;/a&gt; 中已有支援 JSON，可很容易的對 JSON 數據做編解碼&lt;/p&gt;
+&lt;img src=&quot;/tech/golang-json/go-json.png&quot; title=&quot;Go JSON&quot;&gt;
+&lt;p&gt;Golang 官方的 &lt;a href=&quot;https://golang.org/pkg/encoding/json/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;package&lt;/a&gt; 中已有支援 JSON，可很容易的對 JSON 數據做編解碼&lt;/p&gt;
     
     </summary>
     
@@ -85,7 +85,7 @@
     
     <summary type="html">
     
-      &lt;img src=&quot;/tech/File-Locking/file-system.jpeg&quot; alt=&quot;File System&quot; title=&quot;File System&quot;&gt;
+      &lt;img src=&quot;/tech/File-Locking/file-system.jpeg&quot; title=&quot;File System&quot;&gt;
 &lt;blockquote&gt;
 &lt;p&gt;再動手寫這篇之前，我踩到了一個雷，這篇描述了一下我遇到的問題跟解法，若是有人有更好的想法，或是我哪裡有搞錯了，請告訴我，我會非常感謝的！！！&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -121,10 +121,10 @@
     
     <summary type="html">
     
-      &lt;img src=&quot;/tech/HTTP-Caching/Web-browsers-Chrome-Firefox-Safari-Edge-Opera_640x241.png&quot; alt=&quot;Browsers&quot; title=&quot;Browsers&quot;&gt;
+      &lt;img src=&quot;/tech/HTTP-Caching/Web-browsers-Chrome-Firefox-Safari-Edge-Opera_640x241.png&quot; title=&quot;Browsers&quot;&gt;
 &lt;p&gt;近年來 Web 的服務越來越多樣化，其中不乏較大流量的服務，不僅增加傳輸的成本，也會拖慢 Browser 處理的時間，因此需要重複的利用之前所緩存的資源。&lt;/p&gt;
 &lt;h2 id=&quot;Caching-機制&quot;&gt;&lt;a href=&quot;#Caching-機制&quot; class=&quot;headerlink&quot; title=&quot;Caching 機制&quot;&gt;&lt;/a&gt;Caching 機制&lt;/h2&gt;&lt;p&gt;那就讓我們來看看 Caching 的機制是什麼&lt;/p&gt;
-&lt;p&gt;在規範（&lt;a href=&quot;https://tools.ietf.org/html/rfc7234&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://tools.ietf.org/html/rfc7234&lt;/a&gt;）中將其分為 4.2. Freshness 和 4.3. Validation &lt;/p&gt;
+&lt;p&gt;在規範（&lt;a href=&quot;https://tools.ietf.org/html/rfc7234&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://tools.ietf.org/html/rfc7234&lt;/a&gt;）中將其分為 4.2. Freshness 和 4.3. Validation &lt;/p&gt;
     
     </summary>
     
@@ -150,9 +150,9 @@
     
     <summary type="html">
     
-      &lt;img src=&quot;/tech/go-introduction/go-logo.png&quot; alt=&quot;Golang&quot; title=&quot;Golang&quot;&gt;
+      &lt;img src=&quot;/tech/go-introduction/go-logo.png&quot; title=&quot;Golang&quot;&gt;
 &lt;p&gt;在一年多以前，開始在社群跟朋友間很常聽到 &lt;code&gt;Go&lt;/code&gt; 這個程式語言，也很好奇為什麼它突然聲名大噪，為什麼這麼多人推崇，在做了一些功課以後，近期有個機會可以將 &lt;code&gt;Go&lt;/code&gt; 用在實際的專案上，就來稍微的敘述一下心得好了。&lt;/p&gt;
-&lt;h2 id=&quot;背景-amp-理念&quot;&gt;&lt;a href=&quot;#背景-amp-理念&quot; class=&quot;headerlink&quot; title=&quot;背景 &amp;amp; 理念&quot;&gt;&lt;/a&gt;背景 &amp;amp; 理念&lt;/h2&gt;&lt;p&gt;Google 開發的一種靜態強型別、編譯型、併發型，並具有垃圾回收功能的開源程式語言，於 2009 年面世，也稱作 Golang。由 Rob Pike &amp;amp; Robert Griesemer &amp;amp; Ken Thompson 共同開發，在短短不到十年的時間已在程式排名中有一席之地了，像是獲選 &lt;a href=&quot;https://www.tiobe.com/tiobe-index/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;TIOBE&lt;/a&gt; 的 2016 最佳語言&lt;/p&gt;
+&lt;h2 id=&quot;背景-amp-理念&quot;&gt;&lt;a href=&quot;#背景-amp-理念&quot; class=&quot;headerlink&quot; title=&quot;背景 &amp;amp; 理念&quot;&gt;&lt;/a&gt;背景 &amp;amp; 理念&lt;/h2&gt;&lt;p&gt;Google 開發的一種靜態強型別、編譯型、併發型，並具有垃圾回收功能的開源程式語言，於 2009 年面世，也稱作 Golang。由 Rob Pike &amp;amp; Robert Griesemer &amp;amp; Ken Thompson 共同開發，在短短不到十年的時間已在程式排名中有一席之地了，像是獲選 &lt;a href=&quot;https://www.tiobe.com/tiobe-index/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;TIOBE&lt;/a&gt; 的 2016 最佳語言&lt;/p&gt;
     
     </summary>
     
@@ -176,7 +176,7 @@
     
       &lt;p&gt;接續著上次的簡介及流程介紹，這次就來聊聊常用到的選項（還偷渡了一點我會用到的 XDD）&lt;/p&gt;
 &lt;p&gt;一開始我們先來確認 FFmpeg 的版本 ＆ 內含 Library，這關係到我們能用的功能，好比說我想轉 H.264 的 Codec，那麼我就要先確認我有沒有 &lt;code&gt;libx264&lt;/code&gt; 這個函式庫&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$ ffmpeg -version&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ ffmpeg -version&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
@@ -198,7 +198,7 @@
     
     <summary type="html">
     
-      &lt;img src=&quot;/tech/FFmpeg-H264-Options/h264.png&quot; alt=&quot;H264&quot; title=&quot;H264&quot;&gt;
+      &lt;img src=&quot;/tech/FFmpeg-H264-Options/h264.png&quot; title=&quot;H264&quot;&gt;
 &lt;p&gt;H.264 / MPEG-4 AVC 是目前最被廣泛被應用的視訊編碼格式，它的壓縮效率比 MPEG-2、MPEG-4、RV40 …等舊視訊編碼格式還要高許多。&lt;/p&gt;
 &lt;p&gt;如果要輸出 H.264 / AVC 視訊編碼，則需要 &lt;code&gt;libx264&lt;/code&gt; 編碼器，FFmpeg 的組態設定之中必須有 &lt;code&gt;--enable-libx264&lt;/code&gt; 則才可以使用。&lt;/p&gt;
 &lt;p&gt;H.264 有多個版本，版本越高壓縮比就越高（對應到 profile）&lt;/p&gt;
@@ -223,10 +223,10 @@
     
     <summary type="html">
     
-      &lt;img src=&quot;/tech/FFmpeg-Common-Options/transcoder.png&quot; alt=&quot;Transcoder&quot; title=&quot;Transcoder&quot;&gt;
+      &lt;img src=&quot;/tech/FFmpeg-Common-Options/transcoder.png&quot; title=&quot;Transcoder&quot;&gt;
 &lt;p&gt;接續著上次的簡介及流程介紹，這次就來聊聊常用到的選項（還偷渡了一點我會用到的 XDD）&lt;/p&gt;
 &lt;p&gt;一開始我們先來確認 FFmpeg 的版本 ＆ 內含 Library，這關係到我們能用的功能，好比說我想轉 H.264 的 Codec，那麼我就要先確認我有沒有 &lt;code&gt;libx264&lt;/code&gt; 這個函式庫&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$ ffmpeg -version&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ ffmpeg -version&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
@@ -246,8 +246,8 @@
     
     <summary type="html">
     
-      &lt;img src=&quot;/tech/FFmpeg-introduction/ffmpeg.png&quot; alt=&quot;FFmpeg&quot; title=&quot;FFmpeg&quot;&gt;
-&lt;p&gt;FFmpeg 為開源的影音處理框架，可幫助我們進行影音的格式轉換、分離、混合、過濾等等，&lt;a href=&quot;http://ffmpeg.org/general.html#Supported-File-Formats_002c-Codecs-or-Features&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;支援格式&lt;/a&gt; 也非常的廣泛，也可以在多個作業系統及硬體架構上運作。同時也支援多種函式庫，更增加使用上的彈性，依照需求建立出最適合的工具。&lt;/p&gt;
+      &lt;img src=&quot;/tech/FFmpeg-introduction/ffmpeg.png&quot; title=&quot;FFmpeg&quot;&gt;
+&lt;p&gt;FFmpeg 為開源的影音處理框架，可幫助我們進行影音的格式轉換、分離、混合、過濾等等，&lt;a href=&quot;http://ffmpeg.org/general.html#Supported-File-Formats_002c-Codecs-or-Features&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;支援格式&lt;/a&gt; 也非常的廣泛，也可以在多個作業系統及硬體架構上運作。同時也支援多種函式庫，更增加使用上的彈性，依照需求建立出最適合的工具。&lt;/p&gt;
     
     </summary>
     
@@ -268,7 +268,7 @@
     <summary type="html">
     
       &lt;p&gt;這禮拜一去參加了 OWASP 2017 的研討會，其中提到了新發佈的 OWASP Top 10 2017版；先回頭來談一下什麼是 OWASP，在開發系統時，除了功能以外，安全也是必須要著重且注意的，在快速開發的過程中，常常會沒有兼顧到安全這塊；對於部分各戶來說，在還未出包之前大概也不會感覺到資安的重要；OWASP 就統整了十大弱點排名（當然啦～不是只有這十個需要重視）， 最近的一次正式更新是在 2013 年，在這過程中資訊的進步很快，排名也略有變動。&lt;/p&gt;
-&lt;img src=&quot;/tech/OWASP-2017/OWASP_Top_10_2013_with_2017_800x446.png&quot; alt=&quot;OWASP Top 10&quot; title=&quot;OWASP Top 10&quot;&gt;
+&lt;img src=&quot;/tech/OWASP-2017/OWASP_Top_10_2013_with_2017_800x446.png&quot; title=&quot;OWASP Top 10&quot;&gt;
 &lt;p&gt;在研討會中也提到了最新的 OWASP Top 10 2017，與 2013 年比較第一名依舊是 Injection，第二名是身份驗證；然而新版的因考慮了現在的系統採用了許多的 API 讓前後端分離，也搜集了實際企業的 Log 數據，可以從排名中看出都跟最近流行的微服務有關。&lt;/p&gt;
     
     </summary>
@@ -290,7 +290,7 @@
     <summary type="html">
     
       &lt;p&gt;什麼是 NMEA file ？&lt;br&gt;美國國家海洋電子協會 (National Marine Electronics Association，NMEA) 制定了 GPS 協定標準規格，NMEA 0183 的資料格式中記錄了座標、方位、速度、衛星有效數量等等的資訊。&lt;/p&gt;
-&lt;img src=&quot;/tech/GPS-NMEA/GPS_600.jpg&quot; alt=&quot;GPS&quot; title=&quot;GPS&quot;&gt;
+&lt;img src=&quot;/tech/GPS-NMEA/GPS_600.jpg&quot; title=&quot;GPS&quot;&gt;
     
     </summary>
     
@@ -313,7 +313,7 @@
     <summary type="html">
     
       &lt;p&gt;SEO 是什麼呢？它的全稱是 Search Engine Optimization（搜尋引擎優化）。&lt;/p&gt;
-&lt;img src=&quot;/tech/SEO-basic/seo-860x484.png&quot; alt=&quot;SEO&quot; title=&quot;SEO&quot;&gt;
+&lt;img src=&quot;/tech/SEO-basic/seo-860x484.png&quot; title=&quot;SEO&quot;&gt;
 &lt;p&gt;要如何優化呢？其實就是想辦法讓各家的搜尋引擎看懂你的網站；當然內容正確是基本的，搜尋引擎就像一個圖書館一樣，當書目很大量時就得依靠索引、關鍵字等等的輔助去找到書籍，依照大綱、標題等等的去找到正確的內容。再來就是要針對各家的演算法去做強化，但不建議過度針對演算法優化，把內容做好＆標籤打對才是基本功。&lt;/p&gt;
     
     </summary>
@@ -387,7 +387,7 @@
 &lt;p&gt;注：以下的環境是在 GCE (Google Compute Engine) + CentOS7 上完成。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&quot;安裝-Nginx&quot;&gt;&lt;a href=&quot;#安裝-Nginx&quot; class=&quot;headerlink&quot; title=&quot;安裝 Nginx&quot;&gt;&lt;/a&gt;安裝 Nginx&lt;/h2&gt;&lt;p&gt;要在 yum 中增加 Nginx，需手動加入 repo 設定，這樣就可以透過 yum 安裝了&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;# 讓 yum 能找到 nginx&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$ vim /etc/yum.repos.d/nginx.repo&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# 讓 yum 能找到 nginx&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ vim /etc/yum.repos.d/nginx.repo&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
@@ -473,7 +473,7 @@
     
       &lt;p&gt;近年來雲端平台的服務應該大家都不陌生吧～它讓我們可以將維護與建置的工作交付給雲端平台去處理；雲端化以後 IT 維護改由雲端供應商負責，讓我們能花更多的專注力在創新研發上，還能加速部署與模型的建置，使得產品業務更靈活。&lt;/p&gt;
 &lt;p&gt;那麼，到底該怎麼挑選適合自己公司的雲端？先來基礎複習一下，主要的三種雲端服務類型 IaaS（Infrastructure as a Service，基礎設施即服務）、PasS（Platform as a Service，平台即服務）、SaaS（Software as a Service，軟體即服務），各家平台在服務上也略有不同：&lt;/p&gt;
-&lt;img src=&quot;/tech/gcp-vs-aws/separation_of_responsibilities.png&quot; alt=&quot;Separation of Responsibilities&quot; title=&quot;Separation of Responsibilities&quot;&gt;
+&lt;img src=&quot;/tech/gcp-vs-aws/separation_of_responsibilities.png&quot; title=&quot;Separation of Responsibilities&quot;&gt;
     
     </summary>
     
@@ -503,7 +503,7 @@
 &lt;li&gt;HTTP/1.0：這是第一個在通訊中指定版本號的HTTP協定版本，至今仍被廣泛採用，特別是在代理伺服器中。&lt;/li&gt;
 &lt;li&gt;HTTP/1.1：持久連線被預設採用，並能很好地配合代理伺服器工作。還支援以管道方式在同時傳送多個請求，以便降低線路負載，提高傳輸速度。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;※ 引述自 &lt;a href=&quot;https://zh.wikipedia.org/wiki/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;維基百科&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;※ 引述自 &lt;a href=&quot;https://zh.wikipedia.org/wiki/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;維基百科&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
     
     </summary>
