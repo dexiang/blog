@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.dexiang.me/"/>
-  <updated>2018-05-02T07:58:07.423Z</updated>
+  <updated>2018-05-10T09:15:50.881Z</updated>
   <id>http://blog.dexiang.me/</id>
   
   <author>
@@ -15,6 +15,51 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>密碼學簡介</title>
+    <link href="http://blog.dexiang.me/tech/cryptography-introduction/"/>
+    <id>http://blog.dexiang.me/tech/cryptography-introduction/</id>
+    <published>2018-05-10T09:01:32.000Z</published>
+    <updated>2018-05-10T09:15:50.881Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在傳遞資料的時候，若是不希望別人看到，那麼我們就會把內容做適當的處理。在現實生活中其實隨處可見密碼學的概念，我們就來想像以下的情境吧。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Tony 想傳情書給 Whitney，但不想給別人看到，他們會怎麼做呢？&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;對稱加密（Symmetric-Encryption）&quot;&gt;&lt;a href=&quot;#對稱加密（Symmetric-Encryption）&quot; class=&quot;headerlink&quot; title=&quot;對稱加密（Symmetric Encryption）&quot;&gt;&lt;/a&gt;對稱加密（Symmetric Encryption）&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;一開始他們就把信交給郵差之前，將它裝到盒子裡上鎖，各拿一把鑰匙，透過郵差拿到盒子後再把鎖打開&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;對稱加密，溝通雙方拿著一樣的金鑰，有鑰匙的人就可以自由開關，而沒有鑰匙的人就算拿到保險箱也打不開，常見的有：DES、AES&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="tech" scheme="http://blog.dexiang.me/categories/tech/"/>
+    
+    
+      <category term="cryptography" scheme="http://blog.dexiang.me/tags/cryptography/"/>
+    
+      <category term="對稱加密" scheme="http://blog.dexiang.me/tags/%E5%B0%8D%E7%A8%B1%E5%8A%A0%E5%AF%86/"/>
+    
+      <category term="Symmetric Encryption" scheme="http://blog.dexiang.me/tags/Symmetric-Encryption/"/>
+    
+      <category term="非對稱加密" scheme="http://blog.dexiang.me/tags/%E9%9D%9E%E5%B0%8D%E7%A8%B1%E5%8A%A0%E5%AF%86/"/>
+    
+      <category term="Asymmetric encryption" scheme="http://blog.dexiang.me/tags/Asymmetric-encryption/"/>
+    
+      <category term="數位簽章" scheme="http://blog.dexiang.me/tags/%E6%95%B8%E4%BD%8D%E7%B0%BD%E7%AB%A0/"/>
+    
+      <category term="Signature" scheme="http://blog.dexiang.me/tags/Signature/"/>
+    
+      <category term="PKI" scheme="http://blog.dexiang.me/tags/PKI/"/>
+    
+      <category term="X.509" scheme="http://blog.dexiang.me/tags/X-509/"/>
+    
+      <category term="CA" scheme="http://blog.dexiang.me/tags/CA/"/>
+    
+  </entry>
   
   <entry>
     <title>Golang JSON 處理</title>
@@ -522,35 +567,6 @@
       <category term="ssl" scheme="http://blog.dexiang.me/tags/ssl/"/>
     
       <category term="tls" scheme="http://blog.dexiang.me/tags/tls/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo 草稿</title>
-    <link href="http://blog.dexiang.me/tech/hexo-draft/"/>
-    <id>http://blog.dexiang.me/tech/hexo-draft/</id>
-    <published>2017-02-02T11:08:43.000Z</published>
-    <updated>2017-10-15T12:43:26.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;在寫部落格的時候常常會因為篇幅過大沒辦法一次編寫完成，或是同時編寫多篇文章，這時候就會希望不要把這些文章發佈出去。&lt;/p&gt;
-&lt;h3 id=&quot;建立草稿&quot;&gt;&lt;a href=&quot;#建立草稿&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="tech" scheme="http://blog.dexiang.me/categories/tech/"/>
-    
-    
-      <category term="hexo" scheme="http://blog.dexiang.me/tags/hexo/"/>
-    
-      <category term="draft" scheme="http://blog.dexiang.me/tags/draft/"/>
     
   </entry>
   
