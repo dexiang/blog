@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.dexiang.me/tech/x509/</loc>
+    
+    <lastmod>2018-05-17T10:39:46.112Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.dexiang.me/tech/cryptography-introduction/</loc>
     
     <lastmod>2018-05-10T09:15:50.881Z</lastmod>

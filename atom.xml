@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.dexiang.me/"/>
-  <updated>2018-05-10T09:15:50.881Z</updated>
+  <updated>2018-05-17T10:39:46.112Z</updated>
   <id>http://blog.dexiang.me/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>X.509</title>
+    <link href="http://blog.dexiang.me/tech/x509/"/>
+    <id>http://blog.dexiang.me/tech/x509/</id>
+    <published>2018-05-15T09:45:35.000Z</published>
+    <updated>2018-05-17T10:39:46.112Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;延續上次簡介密碼學的時候有談到 PKI，今天要來看看 X.509 這個廣為使用的數位憑證標準。&lt;/p&gt;
+
+&lt;p&gt;先來複習一下名詞吧&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Symmetric Encryption：對稱加密，加解密用同一把鎖&lt;br&gt;Asymmetric Encryption：非對稱加密，用兩把鎖配合來加解密&lt;br&gt;Public Key：非對稱加密中可公開的鎖&lt;br&gt;Private Key：非對稱加密中的私鑰，絕對不可外流&lt;br&gt;Signature：數位簽章，通常是利用內容的 Hash 和 Private Key 所產生的，用來識別發送端身份&lt;br&gt;Man-in-the-middle attack：中間人攻擊指的是駭客利用攔截和偽裝公鑰交換來竄改和轉發訊息&lt;br&gt;PKI：公開金鑰基礎架構提供公鑰和證書的管理&lt;br&gt;CA：Certificate Authority，認證機構也就是憑證簽發的機構&lt;br&gt;Certificate：由 CA 所發的憑證，包含擁有者的資訊、CA、有效日期等訊息&lt;br&gt;CSR（Certificate Signing Request）：憑證簽發請求文件，要透過這份文件去跟 CA 申請憑證  &lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="tech" scheme="http://blog.dexiang.me/categories/tech/"/>
+    
+    
+      <category term="PKI" scheme="http://blog.dexiang.me/tags/PKI/"/>
+    
+      <category term="X.509" scheme="http://blog.dexiang.me/tags/X-509/"/>
+    
+      <category term="CA" scheme="http://blog.dexiang.me/tags/CA/"/>
+    
+      <category term="certificate" scheme="http://blog.dexiang.me/tags/certificate/"/>
+    
+  </entry>
   
   <entry>
     <title>密碼學簡介</title>
@@ -528,45 +559,6 @@
       <category term="AWS" scheme="http://blog.dexiang.me/tags/AWS/"/>
     
       <category term="GCP" scheme="http://blog.dexiang.me/tags/GCP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>簡介 HTTP &amp; HTTPS &amp; HTTP2 協定</title>
-    <link href="http://blog.dexiang.me/tech/about-hyper-text-transfer-protocol/"/>
-    <id>http://blog.dexiang.me/tech/about-hyper-text-transfer-protocol/</id>
-    <published>2017-03-03T10:03:43.000Z</published>
-    <updated>2017-10-15T12:41:57.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;科技來自於人性，知識的傳遞原本是透過書本或口述，但是當網路出現後，人們想要在上傳遞資訊，就得要制定出一些規則，經過不斷修改，最後總結成了一個協定，把它命名為 HyperText Transfer Protocol。&lt;/p&gt;
-&lt;h2 id=&quot;HTTP&quot;&gt;&lt;a href=&quot;#HTTP&quot; class=&quot;headerlink&quot; title=&quot;HTTP&quot;&gt;&lt;/a&gt;HTTP&lt;/h2&gt;&lt;p&gt;一種網路傳輸協定，全名是：HyperText Transfer Protocol，設計初衷是為了傳輸 HTML，中間也推出了數個版本，現今最被廣泛使用的是 HTTP1.1。&lt;/p&gt;
-&lt;h3 id=&quot;HTTP-進程&quot;&gt;&lt;a href=&quot;#HTTP-進程&quot; class=&quot;headerlink&quot; title=&quot;HTTP 進程&quot;&gt;&lt;/a&gt;HTTP 進程&lt;/h3&gt;&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;HTTP/0.9：已過時。只接受GET一種請求方法，沒有在通訊中指定版本號，且不支援請求頭。由於該版本不支援POST方法，因此用戶端無法向伺服器傳遞太多資訊。&lt;/li&gt;
-&lt;li&gt;HTTP/1.0：這是第一個在通訊中指定版本號的HTTP協定版本，至今仍被廣泛採用，特別是在代理伺服器中。&lt;/li&gt;
-&lt;li&gt;HTTP/1.1：持久連線被預設採用，並能很好地配合代理伺服器工作。還支援以管道方式在同時傳送多個請求，以便降低線路負載，提高傳輸速度。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;※ 引述自 &lt;a href=&quot;https://zh.wikipedia.org/wiki/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;維基百科&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="tech" scheme="http://blog.dexiang.me/categories/tech/"/>
-    
-    
-      <category term="http" scheme="http://blog.dexiang.me/tags/http/"/>
-    
-      <category term="https" scheme="http://blog.dexiang.me/tags/https/"/>
-    
-      <category term="http2" scheme="http://blog.dexiang.me/tags/http2/"/>
-    
-      <category term="TCP" scheme="http://blog.dexiang.me/tags/TCP/"/>
-    
-      <category term="ssl" scheme="http://blog.dexiang.me/tags/ssl/"/>
-    
-      <category term="tls" scheme="http://blog.dexiang.me/tags/tls/"/>
     
   </entry>
   

@@ -99,22 +99,22 @@
 
 
 
-  <meta name="description" content="近年來 Web 的服務越來越多樣化，其中不乏較大流量的服務，不僅增加傳輸的成本，也會拖慢 Browser 處理的時間，因此需要重複的利用之前所緩存的資源。 Caching 機制那就讓我們來看看 Caching 的機制是什麼 在規範（https://tools.ietf.org/html/rfc7234）中將其分為 4.2. Freshness 和 4.3. Validation">
-<meta name="keywords" content="HTTP,Cache,Cache-Control,ETage">
+  <meta name="description" content="延續上次簡介密碼學的時候有談到 PKI，今天要來看看 X.509 這個廣為使用的數位憑證標準。  先來複習一下名詞吧  Symmetric Encryption：對稱加密，加解密用同一把鎖Asymmetric Encryption：非對稱加密，用兩把鎖配合來加解密Public Key：非對稱加密中可公開的鎖Private Key：非對稱加密中的私鑰，絕對不可外流Signature：數位簽章，通常是">
+<meta name="keywords" content="PKI,X.509,CA,certificate">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HTTP Caching">
-<meta property="og:url" content="http://blog.dexiang.me/tech/HTTP-Caching/index.html">
+<meta property="og:title" content="X.509">
+<meta property="og:url" content="http://blog.dexiang.me/tech/x509/index.html">
 <meta property="og:site_name" content="Tony 字傳">
-<meta property="og:description" content="近年來 Web 的服務越來越多樣化，其中不乏較大流量的服務，不僅增加傳輸的成本，也會拖慢 Browser 處理的時間，因此需要重複的利用之前所緩存的資源。 Caching 機制那就讓我們來看看 Caching 的機制是什麼 在規範（https://tools.ietf.org/html/rfc7234）中將其分為 4.2. Freshness 和 4.3. Validation">
+<meta property="og:description" content="延續上次簡介密碼學的時候有談到 PKI，今天要來看看 X.509 這個廣為使用的數位憑證標準。  先來複習一下名詞吧  Symmetric Encryption：對稱加密，加解密用同一把鎖Asymmetric Encryption：非對稱加密，用兩把鎖配合來加解密Public Key：非對稱加密中可公開的鎖Private Key：非對稱加密中的私鑰，絕對不可外流Signature：數位簽章，通常是">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:image" content="http://blog.dexiang.me/tech/HTTP-Caching/Web-browsers-Chrome-Firefox-Safari-Edge-Opera_640x241.png">
-<meta property="og:image" content="http://blog.dexiang.me/tech/HTTP-Caching/http-cache-control.png">
-<meta property="og:image" content="http://blog.dexiang.me/tech/HTTP-Caching/http-cache-hierarchy.png">
-<meta property="og:updated_time" content="2018-02-05T02:03:44.919Z">
+<meta property="og:image" content="http://blog.dexiang.me/tech/x509/X.509_Certificate_Format.png">
+<meta property="og:image" content="http://blog.dexiang.me/tech/x509/certificate-chain.gif">
+<meta property="og:image" content="http://blog.dexiang.me/tech/x509/google-certificate.png">
+<meta property="og:updated_time" content="2018-05-17T10:39:46.112Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HTTP Caching">
-<meta name="twitter:description" content="近年來 Web 的服務越來越多樣化，其中不乏較大流量的服務，不僅增加傳輸的成本，也會拖慢 Browser 處理的時間，因此需要重複的利用之前所緩存的資源。 Caching 機制那就讓我們來看看 Caching 的機制是什麼 在規範（https://tools.ietf.org/html/rfc7234）中將其分為 4.2. Freshness 和 4.3. Validation">
-<meta name="twitter:image" content="http://blog.dexiang.me/tech/HTTP-Caching/Web-browsers-Chrome-Firefox-Safari-Edge-Opera_640x241.png">
+<meta name="twitter:title" content="X.509">
+<meta name="twitter:description" content="延續上次簡介密碼學的時候有談到 PKI，今天要來看看 X.509 這個廣為使用的數位憑證標準。  先來複習一下名詞吧  Symmetric Encryption：對稱加密，加解密用同一把鎖Asymmetric Encryption：非對稱加密，用兩把鎖配合來加解密Public Key：非對稱加密中可公開的鎖Private Key：非對稱加密中的私鑰，絕對不可外流Signature：數位簽章，通常是">
+<meta name="twitter:image" content="http://blog.dexiang.me/tech/x509/X.509_Certificate_Format.png">
 
 
 
@@ -123,7 +123,7 @@
 
 
 
-  <link rel="canonical" href="http://blog.dexiang.me/tech/HTTP-Caching/"/>
+  <link rel="canonical" href="http://blog.dexiang.me/tech/x509/"/>
 
 
 
@@ -133,7 +133,7 @@
   };
 </script>
 
-  <title>HTTP Caching | Tony 字傳</title>
+  <title>X.509 | Tony 字傳</title>
   
 
 
@@ -306,7 +306,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.dexiang.me/tech/HTTP-Caching/">
+    <link itemprop="mainEntityOfPage" href="http://blog.dexiang.me/tech/x509/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Tony Xu">
@@ -323,7 +323,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">HTTP Caching
+          <h1 class="post-title" itemprop="name headline">X.509
               
             
           </h1>
@@ -348,7 +348,7 @@
                 
               
 
-              <time title="創建時間：2018-02-01 15:02:39" itemprop="dateCreated datePublished" datetime="2018-02-01T15:02:39+08:00">2018-02-01</time>
+              <time title="創建時間：2018-05-15 17:45:35" itemprop="dateCreated datePublished" datetime="2018-05-15T17:45:35+08:00">2018-05-15</time>
             
 
             
@@ -365,7 +365,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2018-02-05 10:03:44" itemprop="dateModified" datetime="2018-02-05T10:03:44+08:00">2018-02-05</time>
+                <time title="修改時間：2018-05-17 18:39:46" itemprop="dateModified" datetime="2018-05-17T18:39:46+08:00">2018-05-17</time>
               
             
           </span>
@@ -416,60 +416,49 @@
       
 
       
-        <img src="/tech/HTTP-Caching/Web-browsers-Chrome-Firefox-Safari-Edge-Opera_640x241.png" title="Browsers">
-<p>近年來 Web 的服務越來越多樣化，其中不乏較大流量的服務，不僅增加傳輸的成本，也會拖慢 Browser 處理的時間，因此需要重複的利用之前所緩存的資源。</p>
-<h2 id="Caching-機制"><a href="#Caching-機制" class="headerlink" title="Caching 機制"></a>Caching 機制</h2><p>那就讓我們來看看 Caching 的機制是什麼</p>
-<p>在規範（<a href="https://tools.ietf.org/html/rfc7234" target="_blank" rel="noopener">https://tools.ietf.org/html/rfc7234</a>）中將其分為 4.2. Freshness 和 4.3. Validation </p>
+        <p>延續上次簡介密碼學的時候有談到 PKI，今天要來看看 X.509 這個廣為使用的數位憑證標準。</p>
+
+<p>先來複習一下名詞吧</p>
+<blockquote>
+<p>Symmetric Encryption：對稱加密，加解密用同一把鎖<br>Asymmetric Encryption：非對稱加密，用兩把鎖配合來加解密<br>Public Key：非對稱加密中可公開的鎖<br>Private Key：非對稱加密中的私鑰，絕對不可外流<br>Signature：數位簽章，通常是利用內容的 Hash 和 Private Key 所產生的，用來識別發送端身份<br>Man-in-the-middle attack：中間人攻擊指的是駭客利用攔截和偽裝公鑰交換來竄改和轉發訊息<br>PKI：公開金鑰基礎架構提供公鑰和證書的管理<br>CA：Certificate Authority，認證機構也就是憑證簽發的機構<br>Certificate：由 CA 所發的憑證，包含擁有者的資訊、CA、有效日期等訊息<br>CSR（Certificate Signing Request）：憑證簽發請求文件，要透過這份文件去跟 CA 申請憑證  </p>
+</blockquote>
 <a id="more"></a>
-<h3 id="Freshness"><a href="#Freshness" class="headerlink" title="Freshness"></a>Freshness</h3><p>Cache Control &amp; Expires 用來確認本地端的檔案是否過期，若是沒有過期則可以不需向 Server 驗證就可直接使用，就可以避免網路造成的延遲及傳輸成本。</p>
-<blockquote>
-<p>補充說明：<br>在 HTTP1.0 中定義了 <code>Expires</code>，Expires 的值是一個明確的過期時間，但這會碰到一個問題，因為 Expires 的時間是本地的時間，可能會與 Server 的不一致。<br>因此在 HTTP1.1 中新添加了 <code>Cache-Control</code>，實現了更完整的 Caching 聲明；如 max-age 配置，用來表示檔案多久過期，而不是直接表示過期時間。<br>假設設定值為：<code>Cache-Control: max-age=30</code>，在當前 Request 的 30 秒之內再次請求，則會取用 Cache，超過則會再次發送 Request。<br>而根據 <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9.3" target="_blank" rel="noopener">RFC2616</a> 的定義：<code>max-age</code> 會蓋過 Expires。</p>
-<blockquote>
-<p>If a response includes both an Expires header and a max-age directive, the max-age directive overrides the Expires header, even if the Expires header is more restrictiv</p>
-</blockquote>
-</blockquote>
-<h3 id="Validation"><a href="#Validation" class="headerlink" title="Validation"></a>Validation</h3><p>Last-Modified &amp; ETag 則是用來確認本地端的檔案是否與 Server 端的檔案符合，在 Browser 判斷 Cache 可能過期後則會向 Server 驗證檔案的一致性，若驗證通過則 Server 回覆 HTTP Status Code 304，否則返回 200 並回覆新的內容。</p>
-<blockquote>
-<p>補充說明：<br>在 HTTP1.0 中定義了 <code>Last-Modified</code>，當 Server 端回覆的 Response 中含有 Last-Modified（表示這個檔案的最後一次更新時間），則下次 Client 端送出的 Request 中為了要驗證是否有更新則會夾帶 <code>If-Modified-Since</code>（上次收到的 Last-Modified 值）給 Server 判斷。但 Last-Modified 還是有需要加強的地方，像是用時間來紀錄更新的狀態，但卻不代表檔案真的被更新過，另外時間的單位只有到秒，也不足代表。<br>在 HTTP1.1 增加了 <code>Etag</code>，是利用類似 hash 的原理，來代表檔案是否一致，與 <code>If-None-Match</code> 標籤對應，但 Etag 在部分使用情境上還是會有問題，像是 Apache 中的 ETag 是用 inode、檔案大小和最後修改時間來產生的，在有負載平衡架構下，不同機器就會產生出不一樣的 ETag，但由於一般來說都會使用 CDN 技術，就交由專業的處理了。</p>
-</blockquote>
-<p>主要就是透過 Freshness &amp; Validation 這兩個機制來去做 Caching，以下舉個例子來了解一下吧：（為了方便理解，裡面的 Key &amp; Value 並非實際數值）</p>
-<p>假設我第一次跟某個網站要了一張圖得到的回覆是（2018-01-01 13:00:00）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Response Header</span><br><span class="line">Cache-Control: max-age=30day</span><br><span class="line">Last-Modified: 2017-12-25 10:00:00</span><br><span class="line">ETag: validation_key</span><br></pre></td></tr></table></figure>
-<p>收到後就將其存進本地 Cache，在 10 天後我再次訪問這張圖片時，Browser 告訴我：『本地就有存擋了喔，直接給你吧』，於是就不發送請求，直接取用  Cache，Browser 會回應 <code>200 OK (form disk cache)</code></p>
-<p>然後又過了一個月後我再次去看了這張圖，這次 Browser 發現已經過期了，所以它就送了 Request 去問 Server 這張圖從 2017-12-25 10:00:00 後有沒有更新</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Request Header</span><br><span class="line">If-Modified-Since: 2017-12-25 10:00:00</span><br><span class="line">If-None-Match: validation_key</span><br></pre></td></tr></table></figure>
-<p>要是更新了，Server 就會回覆 HTTP Status Code 200 並給予新的檔案<br>若是沒有更新則 Server 會回覆 <code>304 Not Modified</code>，就繼續拿本地的 Cache 來用</p>
-<p>介紹完了概念後，來補充一些細部的解釋吧～</p>
-<h2 id="Cache-Control"><a href="#Cache-Control" class="headerlink" title="Cache-Control"></a>Cache-Control</h2><p>最快的連線就是不要連線，透過本地的緩存，減少不必要的成本，這就要透過 Cache-Control 的設定了</p>
-<img src="/tech/HTTP-Caching/http-cache-control.png" title="Cache-Control">
-<h3 id="no-cache-amp-no-store"><a href="#no-cache-amp-no-store" class="headerlink" title="no-cache &amp; no-store"></a>no-cache &amp; no-store</h3><ul>
-<li>no-cache 表示必須要跟 Server 確認檔案的一致性，不論過期與否，若驗證（ETag）通過，則可直接存取本地緩存</li>
-<li>no-store 就更加簡單了，就是禁止在本地儲存任何的緩存，每次的請求都會由 Server 給予完整的回應</li>
-</ul>
-<h3 id="public-amp-private"><a href="#public-amp-private" class="headerlink" title="public &amp; private"></a>public &amp; private</h3><ul>
-<li>public 表公開資訊，可被緩存，但通常不另外設定</li>
-<li>private 表私人資訊，不允許中繼快取（如 CDN）</li>
-</ul>
-<h3 id="max-age"><a href="#max-age" class="headerlink" title="max-age"></a>max-age</h3><p>表示從請求後開始可緩存的時間（秒）</p>
-<h2 id="HTTP-Status-200-OK-form-disk-cache-與-304-Not-Modified"><a href="#HTTP-Status-200-OK-form-disk-cache-與-304-Not-Modified" class="headerlink" title="HTTP Status 200 OK (form disk cache) 與 304 Not Modified"></a>HTTP Status 200 OK (form disk cache) 與 304 Not Modified</h2><p>先來了解什麼是  200 OK (form disk cache) 與 304 Not Modified</p>
+<p>要是對上面沒印象的話就需要去看之前寫的 “<a href="/tech/cryptography-introduction/" title="密碼學簡介">密碼學簡介</a>” 或者 Google 一下相關資訊</p>
+<h2 id="什麼是-X-509"><a href="#什麼是-X-509" class="headerlink" title="什麼是 X.509"></a>什麼是 X.509</h2><p>X.509 是一種 PKI 的標準，由 ITU-T（國際電信聯盟）在 1988 年制定，基於其以前所制定的 ASN.1 標準。X.509 已用運在許多的面向，包括 TLS/SSL、IOT、電子簽名等等。</p>
+<h3 id="Certificate-結構"><a href="#Certificate-結構" class="headerlink" title="Certificate 結構"></a>Certificate 結構</h3><p>在 X.509 憑證採用了 ASN.1 標準，當中包含了公鑰、身份資訊、簽名資訊、有效日期等資訊，大致結構如下：</p>
+<img src="/tech/x509/X.509_Certificate_Format.png" title="X.509 Certificate Format">
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Certificate: 憑證 </span><br><span class="line">- Version: 版本</span><br><span class="line">- Serial Number: 序號</span><br><span class="line">- Signature Algorithm ID: 憑證簽署演算法 ID</span><br><span class="line">- Issuer: 簽發者</span><br><span class="line">- Validity: 有效期</span><br><span class="line">-- Not Before: 此日期前無效</span><br><span class="line">-- Not After: 此日期後無效</span><br><span class="line">- Subject: 擁有者</span><br><span class="line">- Subject Public Key Info: 擁有者公鑰資訊</span><br><span class="line">-- Public Key Algorithm: 公鑰演算法</span><br><span class="line">-- Subject Public Key: 公鑰</span><br><span class="line">- Issuer Unique Identifier (Optional): 簽發者唯一識別</span><br><span class="line">- Subject Unique Identifier (Optional): 擁有者唯一識別</span><br><span class="line">- Extensions (Optional): 擴充</span><br><span class="line">- Certificate Signature Algorithm: 憑證簽署演算法</span><br><span class="line">- Certificate Signature: 憑證簽章值</span><br></pre></td></tr></table></figure>
+<h3 id="Certificate-副檔名"><a href="#Certificate-副檔名" class="headerlink" title="Certificate 副檔名"></a>Certificate 副檔名</h3><p>X.509 中常用的副檔名如下，其中部分還有其他用途：</p>
 <ul>
-<li>200 OK (form disk cache)：<br>是表示 Browser 沒有跟 Server 確認，就直接使用了本地的 cache</li>
-<li>304 Not Modified：<br>是表示 Browser 跟 Server 確認 cache 的可用性後再使用</li>
+<li><p>.pem -(Privacy Enhanced Mail)：<br>以 Base64 編碼 DER 憑證，並存放在 “—–BEGIN CERTIFICATE—–” 和 “—–END CERTIFICATE—–” 之間。</p>
+</li>
+<li><p>.cer, .crt, .der<br>常使用二進位的 DER 編碼或 Base64 編碼做憑證</p>
+</li>
+<li><p>.p7b, .p7c<br>PKCS#7 憑證結構，不包含資料。</p>
+</li>
+<li><p>.p12<br>PKCS#12 格式包含憑證的公鑰及私鑰 (同時有密碼保護)。</p>
+</li>
+<li><p>.pfx<br>PFX, PKCS#12 的前身</p>
+</li>
+<li><p>.bks<br>Android 用的憑證，由 Bouncy Castle 所實現的 Java Keystore</p>
+</li>
 </ul>
-<h2 id="Cache-的更新及作廢"><a href="#Cache-的更新及作廢" class="headerlink" title="Cache 的更新及作廢"></a>Cache 的更新及作廢</h2><p>依照上面的機制，當 Client Caching 後就只能等它到期後再更新成 Server 上的內容，但是若是我想要 patch 怎麼辦呢？最簡單的方式就是變更請求的位置<br>但如果我們沒有辦法變更呢？很抱歉，只能告訴你，做不到了…<br>所以我們可以設想一下如何才能設計一個魚與熊掌兼得的架構呢？  </p>
-<p>其實我們只要混用剛剛所說的就可以了，參考下面的圖例</p>
-<img src="/tech/HTTP-Caching/http-cache-hierarchy.png" title="cache hierarchy">
-<p>我們藉由給予每個不同的資源不同的快取策略，定義 “快取階層”，如此一來，同時達成用戶端快取和快速更新。</p>
-<ul>
-<li>HTML 標記為 <code>no-cache</code>，這表示瀏覽器在每次請求時都會重新驗證文件，如果內容變更，就會拿到最新版本。同時，在 HTML 標記中，我們在 CSS 和 JavaScript 資源的網址中嵌入指紋碼：如果這些檔案的內容變更，網頁的 HTML 也會隨之變更，並將下載 HTML 回應的新副本。</li>
-<li>允許瀏覽器和中繼快取 (例如 CDN) 快取 CSS，期限設定為 1 年。請注意，我們可以放心使用 1 年的「遠期期限」，因為我們在檔案名稱中嵌入了檔案指紋碼：如果 CSS 更新，網址也會隨之變更。</li>
-<li>JavaScript 期限也設定為 1 年，但是被標記為「private」，也許是因為其中包含了不適合 CDN 快取的使用者私人資料。</li>
-<li>快取圖片時不包含版本或唯一指紋碼，期限設定為 1 天。</li>
-</ul>
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
-<li><a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching?hl=zh-tw" target="_blank" rel="noopener">HTTP 快取 - Google Web Developers</a></li>
-<li><a href="https://blog.techbridge.cc/2017/06/17/cache-introduction/" target="_blank" rel="noopener">循序漸進理解 HTTP Cache 機制 - TechBridge 技術共筆部落格</a></li>
-</ul>
+<h2 id="什麼是-Certificate-Chain"><a href="#什麼是-Certificate-Chain" class="headerlink" title="什麼是 Certificate Chain"></a>什麼是 Certificate Chain</h2><p>Certificate Chain（憑證鏈）顧名思義是一連串的 Certificate，由 Root CA（根憑證）為起點所延伸出的憑證鏈，在鏈中的每張證書都需要透過前一張驗證</p>
+<img src="/tech/x509/certificate-chain.gif" title="Certificate Chain">
+<p>讓我們來看看 Google 的憑證鏈吧：在 Google 使用 HTTPS 時會需要一張 Certificate，而透過瀏覽器我們可以查看到這張 Certificate 所核發的是 <code>*.google.com</code>，代表著 google.com 下的所有網站皆適用這張憑證。然後一路追溯到 GlobalSign 這張根憑證，而 GlobalSign 包含在瀏覽器之中，故可以被信任。</p>
+<img src="/tech/x509/google-certificate.png" title="Google Certificate">
+<p>了解了概念以後就來實做看看吧～</p>
+<h2 id="實作-X-509"><a href="#實作-X-509" class="headerlink" title="實作 X.509"></a>實作 X.509</h2><h3 id="產生金鑰"><a href="#產生金鑰" class="headerlink" title="產生金鑰"></a>產生金鑰</h3><p>一開始要先有 RSA 公私鑰</p>
+<h4 id="產生私鑰"><a href="#產生私鑰" class="headerlink" title="產生私鑰"></a>產生私鑰</h4><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ openssl genrsa -out private.key 2048</span><br><span class="line"><span class="comment"># 產生長度為 2048 bits 名為 private.key 的 public key</span></span><br><span class="line"><span class="comment"># 長度越長越安全，但加解密時間越長</span></span><br></pre></td></tr></table></figure>
+<h4 id="藉由私鑰產生公鑰"><a href="#藉由私鑰產生公鑰" class="headerlink" title="藉由私鑰產生公鑰"></a>藉由私鑰產生公鑰</h4><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ openssl rsa -<span class="keyword">in</span> private.key -pubout -out public.key</span><br><span class="line"><span class="comment"># -in 輸入私鑰</span></span><br><span class="line"><span class="comment"># -pubout 代表輸出一個公鑰</span></span><br><span class="line"><span class="comment"># -out 公鑰檔名</span></span><br></pre></td></tr></table></figure>
+<h3 id="產生-CSR"><a href="#產生-CSR" class="headerlink" title="產生 CSR"></a>產生 CSR</h3><p>要跟 CA 申請憑證的第一步就是要有身份證明文件，但私鑰是不能流出的而且資訊也不太充足，透過 CSR ，裡面會包含許多資訊來給 CA 去做簽署</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ openssl req –new –key private.key -out CSR.csr</span><br><span class="line"><span class="comment"># -new 表示產生 CSR</span></span><br><span class="line"><span class="comment"># -key 搭配的 key</span></span><br></pre></td></tr></table></figure>
+<p>在 CSR 可能含有以下資訊</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Common Name [CN]：簽署名稱，也就是網域名稱</span><br><span class="line">Organization [O]：組織名稱</span><br><span class="line">Organizational Unit [OU]：組織單位，若沒填寫則跟 Common Name 相同</span><br><span class="line">Country [C]：所在國家</span><br><span class="line">State [ST]：所在的州或省</span><br><span class="line">Locality [L]：所在城市</span><br><span class="line">Key Size：憑證演算法與金鑰長度</span><br></pre></td></tr></table></figure>
+<h3 id="產生證書"><a href="#產生證書" class="headerlink" title="產生證書"></a>產生證書</h3><h4 id="自簽-Root-憑證"><a href="#自簽-Root-憑證" class="headerlink" title="自簽 Root 憑證"></a>自簽 Root 憑證</h4><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ openssl x509 -req -days 365 \</span><br><span class="line">-<span class="keyword">in</span> CSR.csr \</span><br><span class="line">-signkey private.key \</span><br><span class="line">-out RootCA.crt</span><br></pre></td></tr></table></figure>
+<h4 id="用-Root-CA-簽發憑證"><a href="#用-Root-CA-簽發憑證" class="headerlink" title="用 Root CA 簽發憑證"></a>用 Root CA 簽發憑證</h4><p>做一個新的 private key &amp; CSR，private2.key &amp; CSR2.csr</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ openssl x509 -req -days 3650 \</span><br><span class="line">-CA RootCA.crt \</span><br><span class="line">-<span class="keyword">in</span> CSR2.csr \</span><br><span class="line">-CAkey private2.key \</span><br><span class="line">-out myhost.crt</span><br></pre></td></tr></table></figure>
+<h3 id="查看-PEM-編碼憑證"><a href="#查看-PEM-編碼憑證" class="headerlink" title="查看 PEM 編碼憑證"></a>查看 PEM 編碼憑證</h3><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ openssl x509 -<span class="keyword">in</span> certificate.pem -text -noout</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -490,13 +479,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/HTTP/" rel="tag"># HTTP</a>
+            <a href="/tags/PKI/" rel="tag"># PKI</a>
           
-            <a href="/tags/Cache/" rel="tag"># Cache</a>
+            <a href="/tags/X-509/" rel="tag"># X.509</a>
           
-            <a href="/tags/Cache-Control/" rel="tag"># Cache-Control</a>
+            <a href="/tags/CA/" rel="tag"># CA</a>
           
-            <a href="/tags/ETage/" rel="tag"># ETage</a>
+            <a href="/tags/certificate/" rel="tag"># certificate</a>
           
         </div>
       
@@ -509,8 +498,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/tech/go-introduction/" rel="next" title="Go 介紹">
-                <i class="fa fa-chevron-left"></i> Go 介紹
+              <a href="/tech/cryptography-introduction/" rel="next" title="密碼學簡介">
+                <i class="fa fa-chevron-left"></i> 密碼學簡介
               </a>
             
           </div>
@@ -518,10 +507,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/tech/File-Locking/" rel="prev" title="File Locking">
-                File Locking <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -796,7 +781,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Caching-機制"><span class="nav-number">1.</span> <span class="nav-text">Caching 機制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Freshness"><span class="nav-number">1.1.</span> <span class="nav-text">Freshness</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Validation"><span class="nav-number">1.2.</span> <span class="nav-text">Validation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cache-Control"><span class="nav-number">2.</span> <span class="nav-text">Cache-Control</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#no-cache-amp-no-store"><span class="nav-number">2.1.</span> <span class="nav-text">no-cache &amp; no-store</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#public-amp-private"><span class="nav-number">2.2.</span> <span class="nav-text">public &amp; private</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#max-age"><span class="nav-number">2.3.</span> <span class="nav-text">max-age</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-Status-200-OK-form-disk-cache-與-304-Not-Modified"><span class="nav-number">3.</span> <span class="nav-text">HTTP Status 200 OK (form disk cache) 與 304 Not Modified</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cache-的更新及作廢"><span class="nav-number">4.</span> <span class="nav-text">Cache 的更新及作廢</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#參考資料"><span class="nav-number">5.</span> <span class="nav-text">參考資料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什麼是-X-509"><span class="nav-number">1.</span> <span class="nav-text">什麼是 X.509</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Certificate-結構"><span class="nav-number">1.1.</span> <span class="nav-text">Certificate 結構</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Certificate-副檔名"><span class="nav-number">1.2.</span> <span class="nav-text">Certificate 副檔名</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什麼是-Certificate-Chain"><span class="nav-number">2.</span> <span class="nav-text">什麼是 Certificate Chain</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#實作-X-509"><span class="nav-number">3.</span> <span class="nav-text">實作 X.509</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#產生金鑰"><span class="nav-number">3.1.</span> <span class="nav-text">產生金鑰</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#產生私鑰"><span class="nav-number">3.1.1.</span> <span class="nav-text">產生私鑰</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#藉由私鑰產生公鑰"><span class="nav-number">3.1.2.</span> <span class="nav-text">藉由私鑰產生公鑰</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#產生-CSR"><span class="nav-number">3.2.</span> <span class="nav-text">產生 CSR</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#產生證書"><span class="nav-number">3.3.</span> <span class="nav-text">產生證書</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#自簽-Root-憑證"><span class="nav-number">3.3.1.</span> <span class="nav-text">自簽 Root 憑證</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用-Root-CA-簽發憑證"><span class="nav-number">3.3.2.</span> <span class="nav-text">用 Root CA 簽發憑證</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看-PEM-編碼憑證"><span class="nav-number">3.4.</span> <span class="nav-text">查看 PEM 編碼憑證</span></a></li></ol></li></ol></div>
             
 
           </div>
