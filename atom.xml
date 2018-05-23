@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.dexiang.me/"/>
-  <updated>2018-05-18T05:39:08.895Z</updated>
+  <updated>2018-05-23T04:05:25.718Z</updated>
   <id>http://blog.dexiang.me/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>打造好用且美觀的 command line</title>
+    <link href="http://blog.dexiang.me/tech/prettify_your_mac_terminal/"/>
+    <id>http://blog.dexiang.me/tech/prettify_your_mac_terminal/</id>
+    <published>2018-05-20T09:35:45.000Z</published>
+    <updated>2018-05-23T04:05:25.718Z</updated>
+    
+    <summary type="html">
+    
+      &lt;img src=&quot;/tech/prettify_your_mac_terminal/pretty_terminal.png&quot; title=&quot;美化過的 Terminal&quot;&gt;
+&lt;p&gt;身為一個程式設計師，隨身有一個好用的 command line tool，也是很正常的～&lt;/p&gt;
+&lt;p&gt;我用的是 iterm2 + zsh + oh-my-zsh，這裡就不贅述是為什麼了（因為這組合太多人用了，網路上文章很多拉～），再修改一些設定和加上一些 plugin 來改造 command line 環境。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="tech" scheme="http://blog.dexiang.me/categories/tech/"/>
+    
+    
+      <category term="iTerm2" scheme="http://blog.dexiang.me/tags/iTerm2/"/>
+    
+      <category term="zsh" scheme="http://blog.dexiang.me/tags/zsh/"/>
+    
+      <category term="oh-my-zsh" scheme="http://blog.dexiang.me/tags/oh-my-zsh/"/>
+    
+      <category term="powerlevel9k" scheme="http://blog.dexiang.me/tags/powerlevel9k/"/>
+    
+      <category term="zsh-completions" scheme="http://blog.dexiang.me/tags/zsh-completions/"/>
+    
+      <category term="zsh-autosuggestions" scheme="http://blog.dexiang.me/tags/zsh-autosuggestions/"/>
+    
+      <category term="zsh-syntax-highlighting" scheme="http://blog.dexiang.me/tags/zsh-syntax-highlighting/"/>
+    
+  </entry>
   
   <entry>
     <title>X.509</title>
@@ -235,9 +269,9 @@
       <category term="tech" scheme="http://blog.dexiang.me/categories/tech/"/>
     
     
-      <category term="golang" scheme="http://blog.dexiang.me/tags/golang/"/>
-    
       <category term="go" scheme="http://blog.dexiang.me/tags/go/"/>
+    
+      <category term="golang" scheme="http://blog.dexiang.me/tags/golang/"/>
     
   </entry>
   
@@ -535,30 +569,6 @@
       <category term="MacOSX" scheme="http://blog.dexiang.me/tags/MacOSX/"/>
     
       <category term="git" scheme="http://blog.dexiang.me/tags/git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>雲端 PK - AWS &amp; GCP</title>
-    <link href="http://blog.dexiang.me/tech/gcp-vs-aws/"/>
-    <id>http://blog.dexiang.me/tech/gcp-vs-aws/</id>
-    <published>2017-06-06T11:18:13.000Z</published>
-    <updated>2017-10-15T12:43:13.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;近年來雲端平台的服務應該大家都不陌生吧～它讓我們可以將維護與建置的工作交付給雲端平台去處理；雲端化以後 IT 維護改由雲端供應商負責，讓我們能花更多的專注力在創新研發上，還能加速部署與模型的建置，使得產品業務更靈活。&lt;/p&gt;
-&lt;p&gt;那麼，到底該怎麼挑選適合自己公司的雲端？先來基礎複習一下，主要的三種雲端服務類型 IaaS（Infrastructure as a Service，基礎設施即服務）、PasS（Platform as a Service，平台即服務）、SaaS（Software as a Service，軟體即服務），各家平台在服務上也略有不同：&lt;/p&gt;
-&lt;img src=&quot;/tech/gcp-vs-aws/separation_of_responsibilities.png&quot; title=&quot;Separation of Responsibilities&quot;&gt;
-    
-    </summary>
-    
-      <category term="tech" scheme="http://blog.dexiang.me/categories/tech/"/>
-    
-    
-      <category term="AWS" scheme="http://blog.dexiang.me/tags/AWS/"/>
-    
-      <category term="GCP" scheme="http://blog.dexiang.me/tags/GCP/"/>
     
   </entry>
   
